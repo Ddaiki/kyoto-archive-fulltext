@@ -9,22 +9,56 @@
 <body>
   <header>
     <h1>京都古典籍 全文検索<span class="proto">プロトタイプ</span></h1>
-    <p class="lead">京都学・歴彩館 古典籍カタログ（全2,716件）。区分で絞り込み、翻刻済み資料は本文を全文検索できます。</p>
+    <p class="lead">京都学・歴彩館 古典籍カタログ（全2,716件）。区分・ページ種別・建造物・年代など多角的に検索できます。</p>
+
+    <div class="tabs">
+      <button class="tab on" data-tab="catalog">カタログ（全2,716件）</button>
+      <button class="tab" data-tab="pages">華頂要略を探索 <span id="pgCount" class="tabnum"></span></button>
+    </div>
+
     <div class="searchbar">
-      <input id="q" type="search" placeholder="本文・タイトル・よみ・編著者で検索（例: 親王 / 大僧正 / 地図 / 銃）" autocomplete="off">
+      <input id="q" type="search" placeholder="本文・タイトル・建造物・人名・年号で検索（例: 塀重門 / 親王 / 元和 / 地図）" autocomplete="off">
       <span id="count" class="count"></span>
     </div>
-    <div class="filters">
+
+    <!-- カタログ用フィルタ -->
+    <div class="filters" id="catFilters">
       <div id="facets" class="facets"></div>
       <label class="toggle"><input type="checkbox" id="onlyTx"> 翻刻ありのみ</label>
     </div>
+
+    <!-- ページ探索用フィルタ -->
+    <div class="filters hidden" id="pageFilters">
+      <div class="filter-row">
+        <span class="flabel">ページ種別</span>
+        <div id="typeFacets" class="facets"></div>
+        <button id="onlyDiagram" class="chip quick">図面のみ</button>
+      </div>
+      <div class="filter-row">
+        <span class="flabel">建造物</span>
+        <div id="buildingFacets" class="facets scroll"></div>
+      </div>
+      <div class="filter-row">
+        <span class="flabel">年号</span>
+        <div id="yearFacets" class="facets scroll"></div>
+      </div>
+      <div class="filter-row">
+        <span class="flabel">表示</span>
+        <button class="viewmode on" data-view="list">リスト</button>
+        <button class="viewmode" data-view="gallery">ギャラリー（図面閲覧）</button>
+        <span id="activeFilters" class="active-filters"></span>
+      </div>
+    </div>
   </header>
 
-  <main id="results"></main>
+  <main>
+    <div id="catResults" class="results"></div>
+    <div id="pageResults" class="results hidden"></div>
+  </main>
 
   <footer>
     <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）。
-      画像は提供元サーバを参照。翻刻テキストは Claude vision による自動翻刻（校正前）。</p>
+      画像は提供元サーバを参照。翻刻・分類・固有表現は Claude vision による自動抽出（校正前）。</p>
   </footer>
 
   <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">

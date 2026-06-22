@@ -1,16 +1,20 @@
-"""くずし字ページ画像を Claude vision で翻刻する。
+"""くずし字ページ画像を Claude vision で翻刻し、研究用の構造化メタデータも抽出する。
 
-- 既定モデル: claude-sonnet-4-6（精度が要る箇所のみ上位モデルを検討）
-- 既定解像度: L。判読不能（□）が多い／信頼度が低いページは O（原寸）に自動エスカレート。
+本文だけでなく寺院の指図（平面図）・絵図・系図にも対応し、ページ種別の分類、
+図面の注記ラベル、固有表現（建造物・人名・地名・年号）、要約・キーワードを返す。
+これにより「平面図だけ抽出」「特定の門の記載箇所を探す」「建立年代を辿る」等の
+多角的な検索を可能にする。
+
+- 既定モデル: claude-sonnet-4-6
+- 既定解像度: L。判読困難／図面で注記が小さい場合は O（原寸→モデルには1568px）に昇格。
 - 結果は data/ocr/<media_pkey>.json にキャッシュし、再実行で再課金しない。
-- 処理ごとのトークン・概算費用を集計し戻り値に含める（docs/ocr_cost.md 用）。
 """
 from __future__ import annotations
 
 import base64
 import json
 import os
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import anthropic
@@ -19,35 +23,66 @@ from ..fetch import images, record
 
 OCR_DIR = Path("data/ocr")
 DEFAULT_MODEL = "claude-sonnet-4-6"
+SCHEMA_VERSION = 2  # スキーマ変更時にインクリメント（古いキャッシュを再処理する判定に使用）
 
-# 料金（$/1M tok, 2026-06）。docs/ocr_cost.md と一致させること。
+# 料金（$/1M tok, 2026-06）
 PRICING = {
     "claude-sonnet-4-6": (3.0, 15.0),
     "claude-opus-4-8": (5.0, 25.0),
 }
 
+PAGE_TYPES = [
+    "本文", "目次", "序跋", "平面図_指図", "絵図", "系図", "表",
+    "表紙", "奥付", "見返し", "白紙", "その他",
+]
+DIAGRAM_TYPES = {"平面図_指図", "絵図", "系図", "表"}
+
 SYSTEM_PROMPT = (
-    "あなたは日本の古典籍（和装本）のくずし字・変体仮名・旧字体を専門とする翻刻者です。"
-    "渡される画像は古典籍の見開き（右ページ→左ページの順、各ページは縦書きで行は右から左）"
-    "です。次の方針で本文を翻刻してください。\n"
-    "1. くずし字・行草体を現代通行の字体（新字体）に開いて翻刻する。\n"
-    "2. 変体仮名は現代仮名の字母（あ・い・う…）に直す。\n"
-    "3. 旧字体・異体字は通行字体に直す。\n"
-    "4. 判読不能の文字は □ で示す。推測で補わない。\n"
-    "5. 行（列）の区切りは改行で表す。右ページと左ページの境目には空行を入れる。\n"
-    "6. ページ番号・柱・蔵書印・カラースケール・物差し等の本文外要素は翻刻しない。\n"
-    "7. 本文が無い（白紙・表紙・見返し等）の場合は transcription を空文字にする。"
+    "あなたは日本の古典籍（和装本）の専門家で、くずし字・変体仮名・旧字体の翻刻と、"
+    "寺院の指図（平面図）・絵図・系図の読解に習熟しています。"
+    "渡される画像は古典籍の見開き（右ページ→左ページ、各ページ縦書きで行は右から左）です。"
+    "次を行い、指定 JSON で返してください。\n"
+    "【ページ種別 page_type】次から最も適切なものを1つ: " + " / ".join(PAGE_TYPES) + "。"
+    "建物の配置を線で描いた図は『平面図_指図』。\n"
+    "【翻刻 transcription】本文を現代通行字体に開いて翻刻（変体仮名→現代仮名字母、"
+    "旧字体・異体字→通行字体、判読不能は □、行は改行、右ページと左ページの境に空行）。"
+    "図面の場合は読み取れる注記文字を改行区切りで列挙。\n"
+    "【注記ラベル labels】図面・絵図に書き込まれた語（門名・堂名・室名・寸法・方位など）を"
+    "個別に配列で（本文ページでは空配列）。例: 塀重門, 四脚唐門, 玄関, 二間半。\n"
+    "【固有表現 entities】建造物（門・堂・院・殿・室など施設名）, 人名, 地名, "
+    "年号（『元和九年』のように元号＋年で。可能なら（西暦）を補う）を種別ごとに配列で。\n"
+    "【要約 summary】このページの内容を日本語1文で。\n"
+    "【キーワード keywords】検索に有用な語を数個。\n"
+    "本文外要素（カラースケール・物差し・柱・蔵書印・ページ番号）は翻刻・抽出しない。"
+    "白紙・表紙等は transcription を空に。推測で字を補わない。"
 )
 
+_ENT = {
+    "type": "object",
+    "properties": {
+        "建造物": {"type": "array", "items": {"type": "string"}},
+        "人名": {"type": "array", "items": {"type": "string"}},
+        "地名": {"type": "array", "items": {"type": "string"}},
+        "年号": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": ["建造物", "人名", "地名", "年号"],
+    "additionalProperties": False,
+}
 OUTPUT_SCHEMA = {
     "type": "object",
     "properties": {
-        "transcription": {"type": "string", "description": "翻刻本文（改行区切り）"},
-        "confidence": {"type": "number", "description": "全体の確信度 0.0–1.0"},
-        "illegible_count": {"type": "integer", "description": "□ で示した判読不能文字の数"},
-        "notes": {"type": "string", "description": "翻刻上の注記・疑問点（無ければ空文字）"},
+        "page_type": {"type": "string", "enum": PAGE_TYPES},
+        "transcription": {"type": "string"},
+        "labels": {"type": "array", "items": {"type": "string"}},
+        "entities": _ENT,
+        "summary": {"type": "string"},
+        "keywords": {"type": "array", "items": {"type": "string"}},
+        "confidence": {"type": "number"},
+        "illegible_count": {"type": "integer"},
+        "notes": {"type": "string"},
     },
-    "required": ["transcription", "confidence", "illegible_count", "notes"],
+    "required": ["page_type", "transcription", "labels", "entities", "summary",
+                 "keywords", "confidence", "illegible_count", "notes"],
     "additionalProperties": False,
 }
 
@@ -57,7 +92,13 @@ class OcrResult:
     media_pkey: str
     size: str
     model: str
+    schema_version: int
+    page_type: str
     transcription: str
+    labels: list
+    entities: dict
+    summary: str
+    keywords: list
     confidence: float
     illegible_count: int
     notes: str
@@ -86,7 +127,7 @@ def _call(client: anthropic.Anthropic, img_path: Path, model: str) -> tuple[dict
             "content": [
                 {"type": "image", "source": {
                     "type": "base64", "media_type": "image/jpeg", "data": _b64(img_path)}},
-                {"type": "text", "text": "この見開きを上記方針で翻刻してください。"},
+                {"type": "text", "text": "この見開きを上記方針で翻刻・分析してください。"},
             ],
         }],
         output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
@@ -98,24 +139,25 @@ def _call(client: anthropic.Anthropic, img_path: Path, model: str) -> tuple[dict
 def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",
                model: str = DEFAULT_MODEL, escalate: bool = True,
                refresh: bool = False) -> OcrResult:
-    """1ページ（見開き）を翻刻。L で実行し、判読困難なら O に自動エスカレート。"""
     OCR_DIR.mkdir(parents=True, exist_ok=True)
     out = OCR_DIR / f"{media_pkey}.json"
     if out.exists() and not refresh:
-        return OcrResult(**json.loads(out.read_text(encoding="utf-8")))
+        cached = json.loads(out.read_text(encoding="utf-8"))
+        if cached.get("schema_version") == SCHEMA_VERSION:
+            return OcrResult(**cached)
 
-    client = anthropic.Anthropic()  # ANTHROPIC_API_KEY を環境/ .env から解決
-
+    client = anthropic.Anthropic()
     size = "L"
     img = images.download(media_pkey, size, catalog_pkey=catalog_pkey)
     data, in_tok, out_tok = _call(client, img, model)
     cost = _cost(model, in_tok, out_tok)
 
-    # エスカレーション条件: 真に判読困難なページに限定（L単独を既定とし費用倍化を避ける）。
-    # 検証（docs/ocr_cost.md）で確信度0.7台でもLで十分翻刻できたため、しきい値を厳しめに。
+    is_diagram = data["page_type"] in DIAGRAM_TYPES
     needs_better = (
-        data["transcription"].strip()
-        and (data["confidence"] < 0.60 or data["illegible_count"] >= 15)
+        (data["transcription"].strip() or data["labels"])
+        and (data["confidence"] < 0.65
+             or data["illegible_count"] >= 15
+             or (is_diagram and data["confidence"] < 0.90))
     )
     if escalate and needs_better:
         size = "O"
@@ -124,8 +166,10 @@ def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",
         cost += _cost(model, in_tok, out_tok)
 
     res = OcrResult(
-        media_pkey=media_pkey, size=size, model=model,
-        transcription=data["transcription"], confidence=float(data["confidence"]),
+        media_pkey=media_pkey, size=size, model=model, schema_version=SCHEMA_VERSION,
+        page_type=data["page_type"], transcription=data["transcription"],
+        labels=data["labels"], entities=data["entities"], summary=data["summary"],
+        keywords=data["keywords"], confidence=float(data["confidence"]),
         illegible_count=int(data["illegible_count"]), notes=data["notes"],
         input_tokens=in_tok, output_tokens=out_tok, cost_usd=round(cost, 5),
     )
@@ -133,25 +177,31 @@ def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",
     return res
 
 
+def _media_pkey_for_order(order: int, base: str = "0000093229") -> str:
+    """媒体pkeyは連番（華頂要略は0000093229から）。order→媒体pkey。"""
+    return f"{int(base) + order:010d}"
+
+
 if __name__ == "__main__":
     import sys
 
     catalog = sys.argv[1] if len(sys.argv) > 1 else "0000000402"
-    n = int(sys.argv[2]) if len(sys.argv) > 2 else 4
-    start = int(sys.argv[3]) if len(sys.argv) > 3 else 4  # 表紙・見返しを避けて4枚目から
+    start = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+    n = int(sys.argv[3]) if len(sys.argv) > 3 else 4
+    refresh = "--refresh" in sys.argv
 
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("ANTHROPIC_API_KEY が未設定です。.env に設定してください。")
 
-    rec = record.build_record(catalog, max_pages=1)
-    targets = rec.pages[start:start + n]
     total_cost = 0.0
-    for p in targets:
-        r = transcribe(p.media_pkey, catalog_pkey=catalog)
+    types: dict[str, int] = {}
+    for order in range(start, start + n):
+        mp = _media_pkey_for_order(order)
+        r = transcribe(mp, catalog_pkey=catalog, refresh=refresh)
         total_cost += r.cost_usd
-        head = r.transcription.replace("\n", " / ")[:60]
-        print(f"[{p.order}] media={r.media_pkey} size={r.size} "
-              f"conf={r.confidence:.2f} □={r.illegible_count} "
-              f"in={r.input_tokens} out={r.output_tokens} ${r.cost_usd:.4f}")
-        print(f"      {head}…")
-    print(f"\n合計概算費用: ${total_cost:.4f}（{len(targets)}見開き, model={DEFAULT_MODEL}）")
+        types[r.page_type] = types.get(r.page_type, 0) + 1
+        head = (r.transcription or " ".join(r.labels)).replace("\n", " ")[:46]
+        ent = sum(len(v) for v in r.entities.values())
+        print(f"[{order:>3}] {mp} {r.size} {r.page_type:<8} conf={r.confidence:.2f} "
+              f"ent={ent} ${r.cost_usd:.4f}  {head}…")
+    print(f"\n合計 ${total_cost:.4f} / {n}見開き  種別: {types}")
