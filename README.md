@@ -5,6 +5,9 @@
 Claude API の vision で翻刻テキスト化し、**全文検索できる Web サイト**を構築する
 プロジェクト。
 
+**公開URL（プロトタイプ）: <https://ddaiki.github.io/kyoto-archive-fulltext/>**
+（現在は華頂要略 首巻の49見開きを翻刻・検索可能なデモ段階）
+
 > 出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）
 > <https://www.archives.kyoto.jp/websearchpe/>
 > 本リポジトリは公開データを研究・教育目的で二次利用する。画像の著作権・利用条件は
@@ -15,14 +18,14 @@ Claude API の vision で翻刻テキスト化し、**全文検索できる Web 
 | Phase | 内容 | 状態 |
 |-------|------|------|
 | 0 | 画像取得可能性の調査 | ✅ **完了 → 取得可能（GO）** [`docs/feasibility.md`](docs/feasibility.md) |
-| 1 | データ取得パイプライン | ⏳ 着手前（依頼者の判断待ち） |
-| 2 | くずし字OCR（Claude vision） | ⏳ コスト検証待ち [`docs/ocr_cost.md`](docs/ocr_cost.md) |
-| 3 | 検索DB（SQLite FTS5） | ⏳ |
-| 4 | Web サイト＋デプロイ | ⏳ [`docs/hosting_decision.md`](docs/hosting_decision.md) |
-| 5 | UIブラッシュアップ | ⏳ |
+| 1 | データ取得パイプライン | 🟡 骨格完成（華頂要略で実証）。全件列挙は未実行 |
+| 2 | くずし字OCR（Claude vision） | 🟡 検証完了・首巻49見開き翻刻済み（実測$0.0147/見開き）[`docs/ocr_cost.md`](docs/ocr_cost.md) |
+| 3 | 検索DB（SQLite FTS5） | 🟡 暫定: 静的JSON＋クライアント検索（FTS5化は規模拡大時） |
+| 4 | Web サイト＋デプロイ | ✅ **公開中**（GitHub Pages）[`docs/hosting_decision.md`](docs/hosting_decision.md) |
+| 5 | UIブラッシュアップ（Claude Design） | ⏳ |
 
-現在の到達点は **Phase 0 完了**。Phase 0 の結論と、全件展開・OCR課金の前に確認したい
-分岐は `docs/feasibility.md` 末尾「依頼者への確認事項」に記載。
+**プロトタイプ（華頂要略を縦に1本）が公開稼働中。** 以降は公開サイトを見ながら、
+初期スコープ拡大（全件列挙・追加翻刻）と UI 改善を進める。
 
 ## ディレクトリ構成（予定）
 

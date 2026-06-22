@@ -1,6 +1,10 @@
-# Phase 4 — デプロイ先 選定（暫定方針 / 確定は実装時）
+# Phase 4 — デプロイ先 選定
 
-## 暫定の第一候補: GitHub Pages（静的）＋ クライアントサイド全文検索
+**確定: GitHub Pages（静的）＋ クライアントサイド全文検索。**
+公開URL: <https://ddaiki.github.io/kyoto-archive-fulltext/>
+デプロイ: `.github/workflows/pages.yml` が `web/` を push 時に自動公開（CI/CD手離れ良）。
+
+## 選定理由: GitHub Pages（静的）＋ クライアントサイド全文検索
 
 理由（データが静的に固められる前提が成り立つため）:
 
