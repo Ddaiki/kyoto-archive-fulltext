@@ -1,0 +1,43 @@
+# 環境変数・APIキー（絶対にコミットしない）
+.env
+.env.*
+*.key
+
+# 取得画像・大容量キャッシュ
+data/cache/
+data/images/
+data/raw/
+*.tif
+*.tiff
+
+# SQLite DB（再生成可能なため除外。必要なら配布物は別途）
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / フロント
+node_modules/
+dist/
+.cache/
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ログ・一時ファイル
+*.log
+tmp/
+.tmp/
