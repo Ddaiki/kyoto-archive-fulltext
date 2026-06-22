@@ -1,0 +1,27 @@
+{
+  "media_pkey": "0000093313",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "表紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "和装本の表紙（無題・無記載）で、罫線のみの無地表紙である。",
+  "keywords": [
+    "表紙",
+    "和装本",
+    "華頂要略"
+  ],
+  "confidence": 0.85,
+  "illegible_count": 0,
+  "notes": "画像は和装本の外表紙のみが写されており、題簽・書名・記載文字は確認できない。下部の「華頂要略＿000」はファイル管理用ラベルであり翻刻対象外とした。",
+  "input_tokens": 1406,
+  "output_tokens": 184,
+  "cost_usd": 0.00698
+}

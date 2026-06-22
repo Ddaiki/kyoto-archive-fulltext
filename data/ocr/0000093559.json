@@ -1,0 +1,38 @@
+{
+  "media_pkey": "0000093559",
+  "size": "O",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "本文",
+  "transcription": "同\n同\n三月\n都已\n日変\n四\n月\n十\n五\n日\n西\n塔\n担\n畅\n控\n供\n奉\n高\n帆\n\n同\n造\n法\n眼\n之\n窟\n一\n□\n為\n天\n変\n御\n座\n主\n修\n金\n畅\n法\n\n十\n一\n月\n十\n二\n日\n動\n寺\n送\n大\n御\n鑑\n准\n頂\n大\n阿\n闍\n梨\n補\n再\n助\n動\n寺\n檜\n校\n於\n\n同\n十\n二\n月\n五\n日\n勤\n胤\n寺\n六\n月\n十\n五\n日\n准\n頂\n大\n阿\n闍\n梨\n補\n再\n助\n寺\n灌\n頂\n大\n阿\n闍\n梨\n\n同\n四\n勤\n法\n印\n座\n亥\n庚\n子\n十\n年\n十\n一\n月\n十\n五\n日\n動\n胤\n寺\n六\n月\n十\n五\n日\n准\n頂\n大\n阿\n闍\n梨\n補\n再\n助\n寺\n灌\n頂\n大\n阿\n闍\n梨\n\n養\n和\n九\n年\n辛\n五\n七\n月\n十\n九\n甲\n五\n日\n還\n補\n以\n動\n寺\n檜\n校\n之\n依\n賞\n覧\n補\n依\n校\n之\n閣\n賞\n覧\n都\n庁\n名\n\n印\n六\n月\n補\n皆\n動\n寺\n檜\n校\n於\n推\n僧\n正\n賞\n覧\n都\n庁\n名\n\n同\n六\n日\n全\n法\n服\n道\n快\n叙\n法\n印\n全\n法\n服\n賞\n賞\n図\n住\n\n同\n六\n月\n僧\n都\n歳\n後\n之\n時\n御\n事\n之\n次\n依\n被\n申\n請\n\n風\n也\n権\n女\n僧\n都\n歳\n後\n之\n時\n御\n事\n之\n次\n依\n被\n申\n請\n\n同\n日\n画\n到\n覚\n十\n御\n八\n年\n義\n四\n□\n知\n僧\n二\n頼\n年\n補\n以\n任\n以\n三\n養\n奉\n迎\n\n年\n来\n本\n尊\n地\n蔵\n菩\n薩\n千\n把\n五\n色\n線\n口\n唱\n賞\n迎",
+  "labels": [],
+  "entities": {
+    "建造物": [
+      "西塔"
+    ],
+    "人名": [
+      "道快",
+      "覚"
+    ],
+    "地名": [],
+    "年号": [
+      "養和九年"
+    ]
+  },
+  "summary": "養和九年（辛）を含む寺院関係の法印・僧都・准頂・阿闍梨補任などの記録が記された本文ページ。",
+  "keywords": [
+    "養和",
+    "法印",
+    "准頂",
+    "阿闍梨",
+    "僧都",
+    "補任",
+    "灌頂"
+  ],
+  "confidence": 0.35,
+  "illegible_count": 8,
+  "notes": "画像が見開きで文字が小さく、くずし字も多いため判読困難な箇所が多い。特に左ページ下部の細字部分は判読不能箇所が多く、翻刻の信頼性は低い。右ページも一部判読不能文字あり。",
+  "input_tokens": 1594,
+  "output_tokens": 1194,
+  "cost_usd": 0.03904
+}

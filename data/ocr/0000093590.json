@@ -1,0 +1,47 @@
+{
+  "media_pkey": "0000093590",
+  "size": "O",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "本文",
+  "transcription": "同\n九\n十\n同\n二\n同\n月\n欽\n之\n凌\n重\n申\n叙\n二\n人\n西\n申\n自\n服\n赴\n遷\n所\n但\n更\n為\n十\n動\n許\n同\n法\n二\n日\n但\n例\n前\n於\n大\n院\n就\n戒\n光\n年\n寺\n臨\n四\n於\n同\n十\n日\n也\n成\n大\n三\n聖\n祐\n六\n日\n梨\n同\n就\n院\n頂\n月\n両\n寺\n同\n拝\n大\n於\n十\n聖\n務\n院\n開\n大\n就\n善\n之\n壇\n慈\n六\n闡\n同\n戒\n大\n院\n法\n二\n日\n務\n同\n院\n頂\n之\n寺\n月\n清\n於\n殿\n善\n二\n大\n十\n同\n日\n八\n月\n正\n立\n記\n善\n法\n上\n日\n清\n盛\n義\n慶\n月\n時\n大\n十\n日\n依\n於\n院\n里\n御\n慎\n連\n瀧\n日\n盛\n四\n蔵\n為\n清\n上\n御\n院\n年\n本\n堂\n士\n祐\n申\n正\n院\n之\n次\n法\n於\n大\n太\n日\n参\n臨\n時\n義\n詠\n八\n日\n慶\n立\n寺\n補\n座\n次\n法\n延\n連\n書\n年\n寺\n社\n申\n慶\n五\n蔵\n先\n為\n法\n書\n御\n同\n平\n且\n盛\n弁\n空\n拝\n佐\n御\n朔\n書\n茄\n瀧\n御\n十\n七\n日\n大\n画\n令\n使\n女\n朝\n書\n送\n善\n参\n中\n五\n之\n書\n法\n御\n覧\n靖\n廻\n山\n帝\n書\n御\n迎\n院\n同\n空\n日\n頼\n勧\n請\n鑑\n御\n繕\n勧\n請\n坐\n平\n且\n御\n空\n弁\n迎\n山\n軌\n御\n膳\n勧\n明\n闕\n登\n勿\n膳\n魚\n之\n山\n之\n軌\n\n同\n\n諭\n参\n之\n中\n書\n空\n法\n摸\n御\n堂\n御\n日\n於\n拝\n令\n御\n鑑\n寺\n上\n令\n御\n大\n迎\n次\n之\n以\n奉\n有\n本\n動\n寺\n中\n帝\n膳\n有\n御\n勧\n魚\n請\n御\n則\n命\n客\n副\n同\n寺\n所\n使\n勧\n坦\n請\n迎\n動\n乗\n人\n細\n木\n上\n御\n院\n有\n者\n参\n反\n迎\n会\n遣\n頒\n坦\n聴\n拝\n乗\n動\n上\n其\n所\n人\n次\n之\n浸\n六\n三\n人\n到\n御\n院\n御\n為\n社\n大\n奉\n饗\n各\n寺\n中\n帝\n御\n大\n奉\n院\n膳\n有\n請\n奉\n行\n之\n初\n復\n政\n泰\n御\n所\n帰\n御\n各\n印\n二\n請\n一\n中\n本\n帰\n居\n之\n次\n政\n有\n飯\n膳\n司\n御\n所\n招\n寺\n之\n印\n二\n三\n之\n到\n社\n殿\n頻\n膳\n御\n印\n帰\n居\n拝\n次\n中\n申\n社\n砚\n言\n詩\n吟\n賺\n贈\n社\n一",
+  "labels": [],
+  "entities": {
+    "建造物": [
+      "大院",
+      "本堂",
+      "大殿",
+      "聖壇",
+      "大蔵",
+      "本寺",
+      "瀧院"
+    ],
+    "人名": [
+      "盛義",
+      "盛清",
+      "光祐",
+      "慶立",
+      "慶義",
+      "書善",
+      "書茄"
+    ],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "寺社における法会・御膳・勧請・参拝などの行事記録を日付順に記した本文ページ。",
+  "keywords": [
+    "法会",
+    "勧請",
+    "御膳",
+    "参拝",
+    "寺社",
+    "記録",
+    "行事"
+  ],
+  "confidence": 0.38,
+  "illegible_count": 25,
+  "notes": "くずし字が多く、特に右ページ上部および左ページの一部は判読困難な箇所が多い。人名・固有名詞は誤読の可能性があり、翻刻は暫定的なものである。",
+  "input_tokens": 1594,
+  "output_tokens": 1640,
+  "cost_usd": 0.04768
+}

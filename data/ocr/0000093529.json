@@ -1,0 +1,29 @@
+{
+  "media_pkey": "0000093529",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "表紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "「華頂要略 巻四」と題された和装本の表紙で、門主伝一・二巻の旨が付記されている。",
+  "keywords": [
+    "華頂要略",
+    "巻四",
+    "門主伝",
+    "表紙",
+    "和装本"
+  ],
+  "confidence": 0.88,
+  "illegible_count": 0,
+  "notes": "表紙に「華頂要略 巻四」の書名と「門主傳 一・二卷」と読める付記が確認できる。格子模様の表紙装丁。",
+  "input_tokens": 1406,
+  "output_tokens": 186,
+  "cost_usd": 0.00701
+}

@@ -1,0 +1,28 @@
+{
+  "media_pkey": "0000093421",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "表紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "「華頂要略巻第三」と題された和装本の表紙。",
+  "keywords": [
+    "華頂要略",
+    "表紙",
+    "巻第三",
+    "和装本"
+  ],
+  "confidence": 0.88,
+  "illegible_count": 0,
+  "notes": "表紙に「華頂要略巻第三」と墨書されている。格子縞模様の表紙装丁。",
+  "input_tokens": 1406,
+  "output_tokens": 145,
+  "cost_usd": 0.00639
+}

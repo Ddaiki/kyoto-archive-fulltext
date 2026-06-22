@@ -107,8 +107,21 @@ class OcrResult:
     cost_usd: float
 
 
-def _b64(path: Path) -> str:
-    return base64.standard_b64encode(path.read_bytes()).decode("ascii")
+def _image_part(path: Path) -> dict:
+    """画像をマジックナンバーで判定して base64 画像ブロックを返す（O は PNG のことがある）。"""
+    raw = path.read_bytes()
+    if raw[:8] == b"\x89PNG\r\n\x1a\n":
+        media_type = "image/png"
+    elif raw[:3] == b"\xff\xd8\xff":
+        media_type = "image/jpeg"
+    elif raw[:4] in (b"GIF8",):
+        media_type = "image/gif"
+    elif raw[:4] == b"RIFF" and raw[8:12] == b"WEBP":
+        media_type = "image/webp"
+    else:
+        media_type = "image/jpeg"
+    return {"type": "base64", "media_type": media_type,
+            "data": base64.standard_b64encode(raw).decode("ascii")}
 
 
 def _cost(model: str, in_tok: int, out_tok: int) -> float:
@@ -116,24 +129,34 @@ def _cost(model: str, in_tok: int, out_tok: int) -> float:
     return in_tok * pin / 1e6 + out_tok * pout / 1e6
 
 
-def _call(client: anthropic.Anthropic, img_path: Path, model: str) -> tuple[dict, int, int]:
-    resp = client.messages.create(
-        model=model,
-        max_tokens=4000,
-        system=[{"type": "text", "text": SYSTEM_PROMPT,
-                 "cache_control": {"type": "ephemeral"}}],
-        messages=[{
-            "role": "user",
-            "content": [
-                {"type": "image", "source": {
-                    "type": "base64", "media_type": "image/jpeg", "data": _b64(img_path)}},
-                {"type": "text", "text": "この見開きを上記方針で翻刻・分析してください。"},
-            ],
-        }],
-        output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
-    )
-    text = next(b.text for b in resp.content if b.type == "text")
-    return json.loads(text), resp.usage.input_tokens, resp.usage.output_tokens
+def _call(client: anthropic.Anthropic, img_path: Path, model: str,
+          max_tokens: int = 6000) -> tuple[dict, int, int]:
+    img_part = _image_part(img_path)
+    last_err: Exception | None = None
+    # 出力が max_tokens で途切れて JSON が壊れる場合に上限を上げて再試行。
+    for mt in (max_tokens, 8000):
+        resp = client.messages.create(
+            model=model,
+            max_tokens=mt,
+            system=[{"type": "text", "text": SYSTEM_PROMPT,
+                     "cache_control": {"type": "ephemeral"}}],
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "image", "source": img_part},
+                    {"type": "text", "text": "この見開きを上記方針で翻刻・分析してください。"},
+                ],
+            }],
+            output_config={"format": {"type": "json_schema", "schema": OUTPUT_SCHEMA}},
+        )
+        text = next((b.text for b in resp.content if b.type == "text"), "")
+        try:
+            return json.loads(text), resp.usage.input_tokens, resp.usage.output_tokens
+        except json.JSONDecodeError as e:
+            last_err = e
+            if resp.stop_reason != "max_tokens":
+                break  # 途切れ以外のJSON異常は再試行しても直らない
+    raise RuntimeError(f"翻刻JSONの解析に失敗（stop_reason={resp.stop_reason}）") from last_err
 
 
 def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",

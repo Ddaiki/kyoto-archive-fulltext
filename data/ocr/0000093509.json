@@ -1,0 +1,23 @@
+{
+  "media_pkey": "0000093509",
+  "size": "O",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "白紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "画像が存在しないため、内容を判定できないページである。",
+  "keywords": [],
+  "confidence": 0.0,
+  "illegible_count": 0,
+  "notes": "NO IMAGEプレースホルダーが表示されており、実際の古典籍画像が提供されていない。",
+  "input_tokens": 94,
+  "output_tokens": 121,
+  "cost_usd": 0.01374
+}

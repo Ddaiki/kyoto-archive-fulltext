@@ -1,0 +1,28 @@
+{
+  "media_pkey": "0000093626",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "表紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "和装本「華頂要略」の表紙（格子縞模様の表紙のみが写されている）。",
+  "keywords": [
+    "華頂要略",
+    "表紙",
+    "和装本",
+    "格子縞"
+  ],
+  "confidence": 0.95,
+  "illegible_count": 0,
+  "notes": "画像には格子縞模様の表紙のみが写っており、文字は確認できない。画像下部のラベル「華頂要略＿004」は本文外要素のため翻刻対象外とした。",
+  "input_tokens": 1406,
+  "output_tokens": 185,
+  "cost_usd": 0.00699
+}

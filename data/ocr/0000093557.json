@@ -1,0 +1,41 @@
+{
+  "media_pkey": "0000093557",
+  "size": "O",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "本文",
+  "transcription": "京\n極\n北\n行\n至\n一\n條\n自\n一\n條\n至\n大\n原\n辺\n山\n上\n\n在\n今\n朱\n在\n北\n行\n至\n三\n條\n二\n條\n西\n行\n至\n今\n朱\n\n御\n路\n次\n中\n大\n臣\n法\n六\n人\n服\n賃\n次\n大\n重\n車\n子\n前\n駆\n四\n人\n上\n重\n一\n人\n\n内\n重\n六\n人\n服\n全\n大\n重\n車\n子\n前\n駆\n四\n人\n上\n画\n一\n人\n\n同\n次\n十\n二\n况\n中\n法\n四\n重\n六\n人\n一\n人\n監\n帯\n帯\nキノ\n黄\n上\n務\n房\n忠\n宮\n下\n地\n サ\nコ\nエ\n金\nキ\nキウ\n梱\n帝\nネス\n申\n外\nキノ\n前\n八\n帥\n駆\n扛\n四\n人\n鞋\n右\n人\n\n同\n二\n拾\n太\n政\n大\n臣\n法\n服\n中\n重\n六\n一\n人\n監\n帯\n帯\nキノ\n黄\n\n君\n行\n忿\n忿\n長\n民\n衆\n君\n意\n房\n中\n府\n宮\n居\n八\n人\n下\n総\n居\n上\n座\n承\n有\n蔵\n蚕\n\n二\n人\n門\n閾\n闌\n推\n梨\n上\n花\n信\n壁\n性\n社\n賃\n綱\n三\n綱\n二\n次\n上\n御\n座\n\n九院\n子\n六\n二\n騎\n九\n人\n人\n八\n御\n賜\n叫\n人\n寮\n署\n人\n大\n門\n阿\n房\n御\n家\n次\n末\n推\n銃\n井\n上\n花\n信\n壁\n性\n社\n宽\n三\n綱\n二\n次\n上\n御\n座\n\n四\n従\n仕\n九\n人\n人\n騎\n九\n院\n子\n六\n二\n君\n行\n中\n僧\n女\n主\n结\n花\n父\n二\n御\n賜\n叫\n人\n寮\n署\n人\n大\n門\n阿\n重\n四\n大\n以\n止\n兄\n房\n次\n末\n御\n車\n闌\n推\n梨\n上\n花\n信\n壁\n性\n社\n四\n人\n重\n銀\n下\n牛\n女\n子\n大\n銃\n井\n上\n花\n信\n壁\n性\n社\n内\n于\n大\n都\n以\n帯\n僧\n僧\n俗\n宮\n帯\n上\n花\n信\n壁\n性\n社\n宽\n三\n綱\n二\n次\n上\n御\n座\n拉\n花\n文\n長\n妨\n銀\n花\n囲\n正\n白\n准\n壁\n性\n社\n四\n臣\n黄\nク\n摂\n下\n上\n善\n御\n正\n副\n箇\n付\n法\n香\n牛\n花\n之\n下\n勝\n房\n客\n付\n服\n列\n クラフ\n志\n房\n放\n邪\n二\n充\n木\n下\n服\n列\nクラフ\n志\n房\n放\n邪\n二\n充\n大\n賞\n一\n中\nカ\n車\n予\n俟\n娑\n人\n田\n人\n次\n上\n御\n座\n重\n囲\n人\n重\n忖\n牛\n僧\n賞\n衫\n付\n二\n上\n人\n下\n御\n座\n承\n有\n蔵\n蚕\n八\n仲\n切\nサト\n子\nクノ\nコ\n勝\n重\n御\n座\n\n七\n車\n承\n有\n蔵\n花\n代\nク\n二\n絡\n上\n童\n后\n車\n庇\n澄\n日\n神\n花\n白\n前\n次\n人\n但\n二\n後\n日\n御\n日\n花\n原\n駈\n廊\nクラ\n馬\n二\n後\n日\n御\n日\n花",
+  "labels": [],
+  "entities": {
+    "建造物": [
+      "房",
+      "門",
+      "闌",
+      "闾"
+    ],
+    "人名": [],
+    "地名": [
+      "京極",
+      "大原",
+      "朱雀"
+    ],
+    "年号": []
+  },
+  "summary": "行列の構成・人員配置に関する記述で、太政大臣・中大臣の法服や車・騎馬の前駆・重などの行列次第を記した本文。",
+  "keywords": [
+    "行列",
+    "法服",
+    "重車",
+    "前駆",
+    "太政大臣",
+    "中大臣",
+    "京極",
+    "大原"
+  ],
+  "confidence": 0.32,
+  "illegible_count": 45,
+  "notes": "くずし字・仮名交じりの速記的な筆記が多く、特に右ページ中央付近および左ページ中央付近に片仮名交じりの略記が多数あり判読困難な箇所が多い。翻刻は暫定的なものであり誤読を含む可能性が高い。",
+  "input_tokens": 1594,
+  "output_tokens": 1823,
+  "cost_usd": 0.05064
+}

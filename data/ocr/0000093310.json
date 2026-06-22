@@ -1,0 +1,26 @@
+{
+  "media_pkey": "0000093310",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "白紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "見開き両ページとも白紙である。",
+  "keywords": [
+    "白紙",
+    "華頂要略"
+  ],
+  "confidence": 0.99,
+  "illegible_count": 0,
+  "notes": "右ページに薄い墨の痕跡が見られるが、判読可能な文字はない。画像下部の「華頂要略＿000」はページ番号・資料名ラベルであり翻刻対象外。",
+  "input_tokens": 1406,
+  "output_tokens": 160,
+  "cost_usd": 0.00662
+}

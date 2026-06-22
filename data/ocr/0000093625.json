@@ -1,0 +1,28 @@
+{
+  "media_pkey": "0000093625",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "表紙",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "和装本『華頂要略』の表紙（見返し）見開きで、右ページに薄く書名・巻次等の墨書が見えるが、左ページはほぼ白紙である。",
+  "keywords": [
+    "華頂要略",
+    "表紙",
+    "見返し",
+    "和装本"
+  ],
+  "confidence": 0.5,
+  "illegible_count": 0,
+  "notes": "右ページに淡い墨書が数行認められるが、画像の解像度・退色のため判読が困難であり、翻刻を省略した。ファイル名より書名は『華頂要略』と推定される。",
+  "input_tokens": 1406,
+  "output_tokens": 214,
+  "cost_usd": 0.00743
+}

@@ -1,0 +1,27 @@
+{
+  "media_pkey": "0000093315",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "schema_version": 2,
+  "page_type": "見返し",
+  "transcription": "",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "見返し（白紙）のページで、文字・図版等の記載はない。",
+  "keywords": [
+    "華頂要略",
+    "見返し",
+    "白紙"
+  ],
+  "confidence": 0.95,
+  "illegible_count": 0,
+  "notes": "画像下部に『華頂要略＿001』とあるが、これは整理番号・資料名であり本文外要素のため翻刻対象外とした。右ページは表紙裏（見返し）、左ページは本冊の遊び紙と思われ、いずれも無地。",
+  "input_tokens": 1406,
+  "output_tokens": 196,
+  "cost_usd": 0.00716
+}

@@ -31,18 +31,27 @@ def run(catalog_pkey: str, start: int, count: int, workers: int = 4,
     results = {}
     done = 0
 
+    failures: list[tuple[str, str]] = []
+
     def work(mp):
         return mp, T.transcribe(mp, catalog_pkey=catalog_pkey, refresh=refresh)
 
     with ThreadPoolExecutor(max_workers=workers) as ex:
         futs = [ex.submit(work, mp) for mp in media]
         for fut in as_completed(futs):
-            mp, r = fut.result()
-            results[mp] = r
+            try:
+                mp, r = fut.result()
+                results[mp] = r
+            except Exception as e:  # 1件の失敗で全体を止めない
+                failures.append(("?", str(e)))
             done += 1
             if done % 20 == 0 or done == len(media):
                 cost = sum(x.cost_usd for x in results.values())
-                print(f"  {done}/{len(media)} 完了  累計 ${cost:.3f}", flush=True)
+                print(f"  {done}/{len(media)} 完了  累計 ${cost:.3f}"
+                      + (f"  失敗{len(failures)}" if failures else ""), flush=True)
+
+    if failures:
+        print(f"\n失敗 {len(failures)}件: {failures[:5]}", flush=True)
 
     total_cost = sum(r.cost_usd for r in results.values())
     types: dict[str, int] = {}
