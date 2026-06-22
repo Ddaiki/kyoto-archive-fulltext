@@ -9,18 +9,21 @@
 <body>
   <header>
     <h1>京都古典籍 全文検索<span class="proto">プロトタイプ</span></h1>
-    <p class="lead">京都学・歴彩館 古典籍カタログのくずし字本文を翻刻し全文検索する試作版。</p>
+    <p class="lead">京都学・歴彩館 古典籍カタログ（全2,716件）。区分で絞り込み、翻刻済み資料は本文を全文検索できます。</p>
     <div class="searchbar">
-      <input id="q" type="search" placeholder="本文・タイトル・編著者で検索（例: 大僧正 / 親王 / 法印）" autocomplete="off">
+      <input id="q" type="search" placeholder="本文・タイトル・よみ・編著者で検索（例: 親王 / 大僧正 / 地図 / 銃）" autocomplete="off">
       <span id="count" class="count"></span>
+    </div>
+    <div class="filters">
+      <div id="facets" class="facets"></div>
+      <label class="toggle"><input type="checkbox" id="onlyTx"> 翻刻ありのみ</label>
     </div>
   </header>
 
   <main id="results"></main>
 
   <footer>
-    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）
-      <a id="srcLink" href="#" target="_blank" rel="noopener">原資料を見る</a>。
+    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）。
       画像は提供元サーバを参照。翻刻テキストは Claude vision による自動翻刻（校正前）。</p>
   </footer>
 
