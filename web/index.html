@@ -23,8 +23,9 @@
 
     <!-- カタログ用フィルタ -->
     <div class="filters" id="catFilters">
-      <div id="facets" class="facets"></div>
-      <label class="toggle"><input type="checkbox" id="onlyTx"> 翻刻ありのみ</label>
+      <div class="filter-row"><span class="flabel">区分</span><div id="facets" class="facets"></div></div>
+      <div class="filter-row"><span class="flabel">分類(NDC)</span><div id="clsFacets" class="facets scroll"></div>
+        <label class="toggle"><input type="checkbox" id="onlyTx"> 翻刻ありのみ</label></div>
     </div>
 
     <!-- ページ探索用フィルタ -->
@@ -57,8 +58,10 @@
   </main>
 
   <footer>
-    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）。
-      画像は提供元サーバを参照。翻刻・分類・固有表現は Claude vision による自動抽出（校正前）。</p>
+    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）。画像は提供元サーバを参照。</p>
+    <p>翻刻: 「AI構造化」頁は Claude vision、「NDL翻刻」頁は
+      <a href="https://github.com/ndl-lab/ndlkotenocr-lite" target="_blank" rel="noopener">NDL古典籍OCR-Lite（国立国会図書館, CC BY 4.0）</a>
+      による自動翻刻（いずれも校正前）。分類はNDC。</p>
   </footer>
 
   <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">

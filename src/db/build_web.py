@@ -16,7 +16,7 @@ from ..fetch import catalog, record
 from ..ocr.transcribe import OCR_DIR
 
 WEB_DATA = Path("web/data.json")
-DETAIL_MAX_PAGES = 8  # 翻刻対象資料で列挙するページ数（×50）。8→先頭400見開き。
+DETAIL_MAX_PAGES = 9  # 翻刻対象資料で列挙するページ数（×50）。9→先頭450見開き。
 
 
 def _ocr_for(media_pkey: str) -> dict | None:
@@ -47,12 +47,21 @@ def _attach_pages(rec: dict, catalog_pkey: str) -> None:
             "summary": o.get("summary", ""),
             "keywords": o.get("keywords", []),
             "confidence": o.get("confidence"),
+            "source": o.get("source", "claude"),
         })
     rec["pages"] = pages
 
 
+DETAILS_JSON = Path("data/details.json")
+
+
+def _load_details() -> dict:
+    return json.loads(DETAILS_JSON.read_text(encoding="utf-8")) if DETAILS_JSON.exists() else {}
+
+
 def build(detailed_pkeys: list[str]) -> Path:
     cat = catalog.build_catalog()
+    details = _load_details()  # 詳細頁由来の分類・請求記号など（課金なしクロール）
     records = [{
         "pkey": c["pkey"],
         "category": c.get("区分", ""),
@@ -62,6 +71,8 @@ def build(detailed_pkeys: list[str]) -> Path:
         "publisher": c.get("出版者", ""),
         "year": c.get("出版年月", ""),
         "restriction": c.get("閲覧制限", ""),
+        "classification": (details.get(c["pkey"], {}) or {}).get("分類", ""),
+        "call_number": (details.get(c["pkey"], {}) or {}).get("請求記号", ""),
     } for c in cat]
 
     by_pkey = {r["pkey"]: r for r in records}
@@ -69,15 +80,23 @@ def build(detailed_pkeys: list[str]) -> Path:
         if pk in by_pkey:
             _attach_pages(by_pkey[pk], pk)
 
-    facet: dict[str, int] = {}
+    cat_facet: dict[str, int] = {}
+    cls_facet: dict[str, int] = {}
     for r in records:
-        facet[r["category"]] = facet.get(r["category"], 0) + 1
+        cat_facet[r["category"]] = cat_facet.get(r["category"], 0) + 1
+        c = r.get("classification") or ""
+        if c:
+            cls_facet[c] = cls_facet.get(c, 0) + 1
 
     out = {
         "source": "京都府立京都学・歴彩館 歴史資料アーカイブ（公開）",
         "source_url": "https://www.archives.kyoto.jp/websearchpe/",
         "catalog_total": len(records),
-        "facets": {"category": dict(sorted(facet.items(), key=lambda kv: -kv[1]))},
+        "details_count": len(details),
+        "facets": {
+            "category": dict(sorted(cat_facet.items(), key=lambda kv: -kv[1])),
+            "classification": dict(sorted(cls_facet.items(), key=lambda kv: -kv[1])),
+        },
         "transcribed_pkeys": [pk for pk in detailed_pkeys if pk in by_pkey],
         "records": records,
     }
