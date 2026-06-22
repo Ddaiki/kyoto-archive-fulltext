@@ -177,14 +177,16 @@ body{min-height:100vh}
   .shelf{margin:1rem 0}
   .shelf-h{margin-bottom:.4rem}
   .shelf-h b{font-size:.95rem}
-  .rail{gap:5px;padding:4px 10px 10px}
-  .bcard{width:118px}
-  .bcard .bc-body{padding:.35rem .45rem .5rem}
-  .bcard .bc-type{font-size:.56rem;margin-bottom:.2rem}
-  .bcard .bc-sum{font-size:.72rem;line-height:1.35}
-  .bcard .bc-meta{font-size:.6rem;margin-top:.22rem;gap:.3rem}
-  .shelf.open .rail{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:5px;padding:4px 10px 10px}
-  .rv-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:5px}
+  /* タイル状にびっしり：隙間ゼロ・角丸なし */
+  .rail{gap:0;padding:4px 8px 10px}
+  .bcard{width:104px;border-radius:0}
+  .bcard .imgwrap{border-radius:0}
+  .bcard .bc-body{padding:.3rem .4rem .45rem}
+  .bcard .bc-type{font-size:.56rem;margin-bottom:.18rem}
+  .bcard .bc-sum{font-size:.7rem;line-height:1.32}
+  .bcard .bc-meta{font-size:.58rem;margin-top:.2rem;gap:.3rem}
+  .shelf.open .rail{grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:0;padding:4px 8px 10px}
+  .rv-grid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:0}
   .tl-wrap{padding:8px 13px 0}
   .tl-head{margin-bottom:.3rem}
   .tl-head b{font-size:.92rem}
@@ -193,7 +195,7 @@ body{min-height:100vh}
   .endcap{width:96px;font-size:.72rem}
 }
 @media (max-width:480px){
-  .bcard{width:104px}
-  .shelf.open .rail,.rv-grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .bcard{width:96px}
+  .shelf.open .rail,.rv-grid{grid-template-columns:repeat(4,1fr);gap:0}
   .bcard .bc-sum{-webkit-line-clamp:2}
 }
