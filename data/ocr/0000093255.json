@@ -1,0 +1,12 @@
+{
+  "media_pkey": "0000093255",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "transcription": "第六十\n同村雑記第二\n自寛延\n至明和\n第六十一\n同村雑記第三\n自安永\n第六十二\n御門領入組\n岡崎村\n鹿谷村\n\n浄土寺村\n田中村\n千本廻\n玉主村\n中堂寺村\n上植野村\n東九条村\n鞍馬村",
+  "confidence": 0.85,
+  "illegible_count": 0,
+  "notes": "右ページに薄く別筆・印影のような文字が見えるが本文外要素と判断し省略した。「千本廻」は「千本廻」のまま翻刻（廻＝めぐり）。「鞍馬村」は左ページ最下段。",
+  "input_tokens": 2197,
+  "output_tokens": 234,
+  "cost_usd": 0.0101
+}

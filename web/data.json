@@ -19,7 +19,7 @@
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093229",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093229",
           "text": "",
-          "confidence": null
+          "confidence": 0.95
         },
         {
           "order": 1,
@@ -27,8 +27,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093230",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093230",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093230",
-          "text": "",
-          "confidence": null
+          "text": "□□□□□□□□□□\n□□□□□□□□□□\n学□日三督府□日七十囬逢事□日四十囬\n明日□□□□\n新聞紙□□\n□□□□□□□\n□□□□\n□□□□\n重泉□□□千□□□□\n千井□囬□□□□□\n王□好□□□□□\n至共□囬□□□□□□\n法□公□□□□□囬□□□\n□□□□十□□十□□\n□□□□□□□□□\n□□□□□□□□\n□□□□□□\n□□□□\n\n□□書目\n王謹囬好□□□\n□□□□目\n好\n□□",
+          "confidence": 0.2
         },
         {
           "order": 2,
@@ -36,8 +36,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093231",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093231",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093231",
-          "text": "",
-          "confidence": null
+          "text": "華頂雲居首巻\n首巻\n総目録\n第壹\n総目録\n引書目録\n九例\n自叙\n御門跡相次汝弟略系\n\n",
+          "confidence": 0.62
         },
         {
           "order": 3,
@@ -45,8 +45,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093232",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093232",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093232",
-          "text": "",
-          "confidence": null
+          "text": "根本伝算一伝教大師\n同算二慈恵大師\n同算三安慧和尚\n同算四相応和尚\n同算五検授次師　並　略伝\n橘川三昧院検授次算　並　畧得\n興動寺慈恵大和尚\n同算五検授次節\n三昧流来由之事\n白衆真言紙血脉相承次寄\n二九一箱之事\n\n第三\n山上山下之御本坊以下総御管鎖所\n比叡山三門跡掃号之事\n御門跡相論枝葉之事\n同殿舎塔新古指図\n之事由\n\n第四\n門首衲伝\n第一行覚大僧正\n第二覚快法親王\n第三慈鎮和尚",
+          "confidence": 0.82
         },
         {
           "order": 4,
@@ -90,8 +90,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093237",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093237",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093237",
-          "text": "",
-          "confidence": null
+          "text": "第二十\n門首御傳\n同親王\n明和年中\n\n第二十一\n門首御傳\n同親王\n安永年中\n\n第二十二\n門首御傳\n同親王\n天明年中\n\n第二十三\n門首御傳\n同親王\n自寛政元年至同十年\n\n\n第二十四\n門首御傳\n同親王\n自寛政十年\n同十三年\n\n第二十五\n門首御傳\n同親王\n享和年中\n\n第二十六\n門首御傳\n同親王\n自文化元年至同六年\n\n第二十七\n門首御傳\n同親王\n自文化七年至同十一年",
+          "confidence": 0.88
         },
         {
           "order": 9,
@@ -99,8 +99,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093238",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093238",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093238",
-          "text": "",
-          "confidence": null
+          "text": "第二十八\n門主御傳\n同親王\n自文化二年至同十四年\n\n第二十九\n門首御傳\n同親王\n自文政元年至同七年\n\n第三十\n門首御傳\n第三十□道尊□親王\n自文化五年\n至文政八年\n\n第三十一\n門首御傳\n同親王\n自文政九年至\n\n第三十二\n門下傳\n本覚院\n浄土寺\n山上号金剛書院\n寝若院坊\n飯衆院\n宝珠院\n号東藜門跡\n号岡崎門跡\n号竹内門跡",
+          "confidence": 0.72
         },
         {
           "order": 10,
@@ -108,8 +108,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093239",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093239",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093239",
-          "text": "",
-          "confidence": null
+          "text": "第三十三\n門下伝\n本願寺\n外様院長\n今插准門跡\n東願寺\n袋棋寺\n非准門跡\n伝蔵諸院家下\n附録\n専修寺\n佛光寺\n興正寺\n錦織寺\n\n第三十四\n門下伝\n院家\n定法寺\n安若院\n聖光院\n智恩院\n\n第三十五\n門下伝\n院家\n尊勝院\n東南院\n真珠院",
+          "confidence": 0.72
         },
         {
           "order": 11,
@@ -117,8 +117,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093240",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093240",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093240",
-          "text": "",
-          "confidence": null
+          "text": "第三十六\n\n門下伝\n院家\n上衆院\n依正院\n\n門下伝\n諸院家\n法輪院\n功徳院\n連□院\n石泉院\n\n第三十七\n\n真性院\n妙観院\n　依真心亦\n敬応院\n　依応王或\n明光院\n截南院\n禅明院\n照泉院\n智楽院\n蓮門院\n　依照松亦\n仏心院",
+          "confidence": 0.72
         },
         {
           "order": 12,
@@ -126,8 +126,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093241",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093241",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093241",
-          "text": "",
-          "confidence": null
+          "text": "身三十八\n門下傳\n諸院家\n十乗院\n密乗院\n無量寿院\n妙解院\n\n身三十九\n門下傳\n諸院家\n金剛寿院\n寶光明院\n\n\n身四十\n門下傳\n諸院家\n不動院\n三光院\n阿関院\n東福院\n德寿院\n證量院\n遠光院\n毫棋寺",
+          "confidence": 0.82
         },
         {
           "order": 13,
@@ -135,8 +135,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093242",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093242",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093242",
-          "text": "",
-          "confidence": null
+          "text": "第四十一\n門下傳\n鳥居小路官儲家\n同廃流伊豫家\n大谷廃流\n長谷家\n同廃流\n大中臣棟長流\n五條家\n葛野刑部卿家\n薗野家\n廃谷家\n\n第四十二\n門下傳\n渡邊家\n隠政家　諸家藁案一\n進藤家\n\n第四十三\n門下傳\n伊丹家\n東並河\n西並河\n武田家　諸家譜代",
+          "confidence": 0.82
         },
         {
           "order": 14,
@@ -144,8 +144,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093243",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093243",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093243",
-          "text": "",
-          "confidence": null
+          "text": "身四十四\n\n門下伝\n諸家譜代\n望月家\n永原家\n梅見家\n勝鴎家\n大賀家\n山田家\n\n身四十五\n\n門下伝\n與利対馬\n諸家散在或断絶之部\n\n坂井太兵衛\n岡本三郎左衛門\n伊藤左衛門\n桐山右衛門\n片岡宗林\n武部村記\n藤野頼母\n沢野頼母\n　帰藤本\n中川左門\n木村右近\n人見玄廊\n\n燮吉右衛門",
+          "confidence": 0.82
         },
         {
           "order": 15,
@@ -153,8 +153,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093244",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093244",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093244",
-          "text": "",
-          "confidence": null
+          "text": "齊藤\n長野\n祐\n枢門\n伊\n織\n始義\n羽川\n香倉\n田\n植田\n主殿\n主馬\n高山\n嶋山\n平\n川口\n左門\n松井\n華屋\n雅楽\n土政\n敷\n察古\n屋左\n衛門\n始井上\n徳永\n主馬\n始井上\n\n七條\n掃部\n荒木\n神谷\n幸節\n掃部\n典鵝\n里村\n松野\n佐野\n敷賀\n小七郎\n松本\n修理\n山本\n雅楽\n廻口\n濱太\n長井\n六之丞\n松本\n頼册",
+          "confidence": 0.62
         },
         {
           "order": 16,
@@ -162,8 +162,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093245",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093245",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093245",
-          "text": "",
-          "confidence": null
+          "text": "号四十六\n\n門下傳\n入横闢逸記　近代諸家或散在之部\n江主膳\n久須見左源\n\n坂堂倫歌\n戸田主馬\n津田敷馬\n森谷主膳\n吉田求観\n小倉正\n\n花房要人\n斤岡軍人\n中路大部炊\n大賀治圖書\n平生織馬\n桂左平馬\n小倉牧太\n服部収斎\n三谷城\n近藤諶正\n岡本諶正",
+          "confidence": 0.62
         },
         {
           "order": 17,
@@ -171,8 +171,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093246",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093246",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093246",
-          "text": "",
-          "confidence": null
+          "text": "藤木左衛門\n木川九京\n禾川帯刀\n荒川長進\n西井帯刀\n横山図書\n清水求馬\n野村丹進\n葉田勇吾\n出野金一帥\n藤鹿毘\n城勧解由\n改木下真\n改慶后将監\n\n駒井大學\n瀧口良嶷\n関五良伊織\n阿枝因幡\n恒垣天柄刀\n板村三浦之又\n木田内蔵\n林田曲膳\n稲内\n海主\n岩尾杭\n終喜",
+          "confidence": 0.62
         },
         {
           "order": 18,
@@ -180,8 +180,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093247",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093247",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093247",
-          "text": "",
-          "confidence": null
+          "text": "井上清記\n竹田右兵衛\n河本惣平\n北川司馬\n堀文庫\n\n国書室雑志\n□□□□□\n□□□□□\n□□山刷主武□□□\n□□方□□□□□\n□□□□□特□□□□\n□□□□□□□月",
+          "confidence": 0.35
         },
         {
           "order": 19,
@@ -189,8 +189,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093248",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093248",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093248",
-          "text": "",
-          "confidence": null
+          "text": "第四十七\n\n門下伝\n\n中小性交名\n青道侍以下伝\n地方茶之諸家伝\n八木之古衛門之流\n西村理古衛門之流\n小西伝古衛門之流\n西村恵之亟之流\n国松左大夫之流\n\n田中九郎左衛門\n神先金十郎之流\n徒士\n賜所籍具預小頭\n行車\n舎役所番\n中番\n三門番",
+          "confidence": 0.78
         },
         {
           "order": 20,
@@ -198,8 +198,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093249",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093249",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093249",
-          "text": "",
-          "confidence": null
+          "text": "第四十八\n門下傳\n安田五堅之流　醫師之部\n進沼德之流\n村上友徐\n坂口立盆\n有馬兵安\n河村意庵\n井尾芳庵\n北村誠仙\n大西良積\n檜川松柏\n\n村上霞柚\n今井宗泉\n上田丈伯\n小林養庵\n坂井正常\n小松霞元柚\n吉那名清\n仁志道遠\n松木養貞\n田丸\n伊良子将監",
+          "confidence": 0.72
         },
         {
           "order": 21,
@@ -207,8 +207,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093250",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093250",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093250",
-          "text": "",
-          "confidence": null
+          "text": "武川幸哲\n井口泰治\n三木順正\n浦名皓賢\n伊益元昌\n坂上柳察\n中山了逸\n早水玄古\n高階東中\n松山玄衛門\n童井右中\n\n竹本立言\n池田玉楼\n渡漫芳仙\n山本正安\n片山書石\n林立一\n中津河立\n版部立助\n鶴殿五吉",
+          "confidence": 0.72
         },
         {
           "order": 22,
@@ -216,8 +216,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093251",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093251",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093251",
-          "text": "",
-          "confidence": null
+          "text": "第四十九\n門下傳\n巌盛光堂供僧\n御社仏僧\n御承仕\n\n第五十\n門下傳\n多武峯御本坊御留守居職\n鞍馬寺柳本坊御留守居職\n御本坊御留守居職\n\n第五十一\n門下傳\n坊官以下迄習已上被召出之次第\n承仕法師交名\n門下諸侍伝勤例\n院家出世坊官\n侍法師\n諸大夫\n承仕\n医師\n侍",
+          "confidence": 0.82
         },
         {
           "order": 23,
@@ -225,8 +225,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093252",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093252",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093252",
-          "text": "",
-          "confidence": null
+          "text": "門下伝\n諸候補\n乾教事\n廳教車\n御知行方支配\n御列次賞\n連判方支配\n御家司\n御侍支配\n青項山阿弥陀堂預蔵\n附取調方\n華項山木道楮門人支配\n入木道楮門人支配\n御用人\n\n金納元方\n御代官\n町方\n附方\n御方\n勧定僧方\n百僧支配\n勧足方\n購方\n非常方\n男之\n御銀方\n附方\n貼書物\n勧進方\n馬物地下申帳\n添役\n金蔵寺預\n御道具方\n御修理方\n御山方\n附叢方\n御庭方\n附花壇方",
+          "confidence": 0.62
         },
         {
           "order": 24,
@@ -234,8 +234,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093253",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093253",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093253",
-          "text": "",
-          "confidence": null
+          "text": "第五十三\n\n門下傳\n\n金藏寺\n\n地藏堂之坊\n庚申堂之坊今廢\n\n御右方\n御里坊街宿尋居附御使役\n江戸方御用所語賃附方\n非常方御派遣田役口\n地方役非常田役百蚊\n町方役之下役勘之方磯人申次\n賃付方\n\n第五十四\n\n門下傳\n華頂山阿弥院堂雑記\n\n第五十五\n但上下蔦二卷\n\n御門領書記\n\n第五十六\n\n栗田口諸寺社\n惑神院新官社\n同別當歓喜院\n良恩寺",
+          "confidence": 0.62
         },
         {
           "order": 25,
@@ -243,8 +243,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093254",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093254",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093254",
-          "text": "",
-          "confidence": null
+          "text": "安養寺\n定信院\n金剛寺\n城安寺\n真慶寺\n佛光寺墓所\n梅宮社\n\n第五十七　栗田口鴫瀆考　上\n第五十八　同記　下\n第五十九　御門室現在總構之記\n栗田村雑記第一\n自慶長至処享",
+          "confidence": 0.78
         },
         {
           "order": 26,
@@ -252,8 +252,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093255",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093255",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093255",
-          "text": "",
-          "confidence": null
+          "text": "第六十\n同村雑記第二\n自寛延\n至明和\n第六十一\n同村雑記第三\n自安永\n第六十二\n御門領入組\n岡崎村\n鹿谷村\n\n浄土寺村\n田中村\n千本廻\n玉主村\n中堂寺村\n上植野村\n東九条村\n鞍馬村",
+          "confidence": 0.85
         },
         {
           "order": 27,
@@ -261,8 +261,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093256",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093256",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093256",
-          "text": "",
-          "confidence": null
+          "text": "大和国\n百済村\n廣瀬村\n菅田村\n\n巻□一\n東観余言□□□□□□□□□□\n□□□□□□\n千□□□□□□□□□□□□□\n□□□□□蘭□□□□□□□\n□□□□□□山□□□□□□\n□□□□□□□□□□□□□\n\n豊□□□\n御□□□\n大□□□",
+          "confidence": 0.3
         },
         {
           "order": 28,
@@ -270,8 +270,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093257",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093257",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093257",
-          "text": "",
-          "confidence": null
+          "text": "第六十三\n御策領所\n大飛院　在東塔南山上\n青林院　在東塔北谷\n桂香院　在黄川飯室谷\n妙香坊　在司谷\n津戒院　在洛西塔大山上\n東楽院　在洛東大山\n十寿院　在洛北山\n常楽寺　在洛東神祇園南\n康楽寺\n\n第六十四\n御寺整所\n無動寺　在比叡山東塔院之南\n葛川寺　在江州比良山西麓\n　附\n回峯行者之事由\n\n第六十五\n御寺教所\n多武峯寺廬記",
+          "confidence": 0.72
         },
         {
           "order": 29,
@@ -279,8 +279,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093258",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093258",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093258",
-          "text": "",
-          "confidence": null
+          "text": "舜六十六\n御武挙縁起\n同堂社之指図\n毎歳倚吉書\n同薪暦衙派書\n\n舜六十七\n御寺務所\n多武峯雑記\n\n舜六十八\n御寺務所\n尊諾親王詠山御容瞻之記\n\n舜六十九\n御寺務所\n多武峯雑記一\n自開基\n至処亨\n\n舜七十\n御寺務所\n多武峯雑記二\n自寛延\n至享和\n\n舜七十一\n御寺務所\n多武峯雑記三\n自文化",
+          "confidence": 0.72
         },
         {
           "order": 30,
@@ -288,8 +288,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093259",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093259",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093259",
-          "text": "",
-          "confidence": null
+          "text": "第七十二\n御寺務所\n鷲淵寺\n斑鳩寺\n\n第七十三\n御寺務所\n鞍馬寺\n\n第七十四\n御寺務所\n鞍馬寺雑記一自始\n至寛文\n\n第七十五\n御寺務所\n鞍馬寺雑記二自延宝\n至享保\n\n第七十六\n御寺務所\n鞍馬寺雑記三自元文\n至化政\n\n第七十七\n御寺務所\n鞍馬寺雑記四自文政\n\n第七十八\n御寺務所\n善沢寺",
+          "confidence": 0.82
         },
         {
           "order": 31,
@@ -297,8 +297,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093260",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093260",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093260",
-          "text": "",
-          "confidence": null
+          "text": "第七十九\n御寺務所\n真如堂\n\n第八十\n御寺務所\n太山寺\n附末寺\n\n第八十一\n御社務所\n氣比太神宮\n\n第八十二\n御社務所\n上瀬社\n附末社\n\n第八十三\n附廟\n諸寺社\n雲林院\n実衆院\n東名寺\n康楽寺\n寂勝寺\n定法寺\n真如堂\n曼珠院\n浄土寺\n京洛外之部　新古\n石泉院\n法輪院\n尊勝院",
+          "confidence": 0.72
         },
         {
           "order": 32,
@@ -306,8 +306,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093261",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093261",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093261",
-          "text": "",
-          "confidence": null
+          "text": "金蔵寺\n感神院新宮\n定信院\n安養院\n松泉院\n光明山\n神宮寺\n城舛寺\n行願寺\n祇院林寺\n\n阿弥陀堂\n良恩院\n知恩院\n長養院\n崇徳院御影堂\n宗徳院\n光明寺\n愛馬院\n鞍馬院\n圓丹院\n法丹院\n元慶寺\n\n歓喜院\n安養院\n一心院\n双林寺\n東粟田宮\n六波羅師家寺\n嚢音寺\n吉田連墓寺\n極楽寺\n慈徳寺\n\n第八十四\n\n附属諸寺社\n無動寺\n葛川寺\n竹生嶋\n\n福林寺\n\n日吉新塔\n横川三昧院\n多賀大社\n法道寺\n法定寺\n\n梵釈寺\n百濟寺\n神官寺\n\n東国之郡\n\n善峰寺\n三鈷寺\n西顕寺\n勝光明院\n最勝金剛院\n\n蓮華寿院\n往生院\n円明寺\n常寿院\n\n青龍院\n観念三昧院\n普賢寺\n観音三昧院\n花園寺",
+          "confidence": 0.82
         },
         {
           "order": 33,
@@ -315,8 +315,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093262",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093262",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093262",
-          "text": "",
-          "confidence": null
+          "text": "教興寺\n定林寺\n述保寺\n法蔵寺\n蓄原寺\n魚光寺\n龍寶寺\n松月寺\n法廣寺\n滝山寺\n三巳河上\n\n信巳近巳\n濃之江上\n\n法叟寺\n德隆寺\n僧太寺\n完奥寺\n正金寺\n顔神宮寺\n南覺院\n大光院\n法山寺\n甲山\n遠江\n伊巳野上\n濃\n\n羽東寺\n羽興寺\n屋寺\n三尾寺\n峯社\n聖興寺\n海岸寺\n永樂寺\n鳳福寺\n真山\n星野山\n\n運華寺\n\n浅草寺\n大聖寺\n千福寺\n三光遵院\n西三\n巳陸上\n常普寺\n観光寺\n宗山寺\n中智寺\n羽鄭寺\n西神社\n\n奥上野上下巳上巳\n\n吉祥寺\n安樂寺\n西林寺\n藥仁王寺\n能仁山\n真光寺\n日光山\n三方連寺\n小野寺\n山王社\n\n下巳　武巳\n總上　藏上\n\n大絃寺\n畏量院\n鳥妙寺\n千王院\n圓橋寺\n藥高寺\n清水寺\n大高寺\n林奥社\n上瀬寺\n神官寺\n義巳\n義上",
+          "confidence": 0.62
         },
         {
           "order": 34,
@@ -324,8 +324,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093263",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093263",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093263",
-          "text": "",
-          "confidence": null
+          "text": "第八十五\n\n附属諸寺社\n神通官　文室寺\n天満官　大聖院\n加上\n己上\n無量寿寺　法薗寺\n多賀梨寺　大和\n和田神祠\n摎原寺　西国之部\n仲山堂　大日院\n大日堂　頻福寺\n隣松院　佛陀寺\n己上　能務寺\n摂津三枝寺\n\n平泉寺　皆見社\n竜神官　摂見社\n千典官　温泉寺\n己上　能登　供利迦羅寺\n気比官\n八幡官\n\n第八十七\n\n太山寺\n潮海寺　己上\n蓮興寺　楮上　層上\n栄相社　班鷺寺\n或相社　但已　世\n小田井社　馬上　根\n薬師寺　顧皇寺　清水寺\n神宮寺　顧金寺　太谷院　清泰院\n同婚　　明王院　長林寺　補中\n三穂社　大山寺　大岳院　興楽寺\n河会寺　旧香　母藝\n与楽寺\n鶺鴒院\n己上\n雲上",
+          "confidence": 0.62
         },
         {
           "order": 35,
@@ -333,8 +333,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093264",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093264",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093264",
-          "text": "",
-          "confidence": null
+          "text": "号八十六\n\n附属諸寺社\n法音寺\n三昧院\n実持院\n観音寺\n宝光明寺\n元忠寺\n阿薬山\n巴俊上\n永興寺\n長命寺\n\n定昔寺　南海之部\n観自在寺\n俳己社\n六郷山　三十箇院\n宝福院\n安福社\n千龍寺\n乾良山\n高仁寺\n建仁寺\n花後上\n\n本莊院　俟\n東福院　肥前上\n鎮社\n池澄寺\n坂東寺\n横尾寺\n\n号八十七\n\n附属寺社\n街由緑之寺院僧\n石清水社\n善法寺\n田中坊\n祇園感神院社壇\n宝寿院\n東梅坊\n新梅坊\n\n東竹坊\n新善法寺\n西梅坊\n宝光院\n\n竹坊\n松坊\n\n鎮西汎浄土宗本山\n知恩院　附御荷擔之記\n一心院",
+          "confidence": 0.62
         },
         {
           "order": 36,
@@ -342,8 +342,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093265",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093265",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093265",
-          "text": "",
-          "confidence": null
+          "text": "伽藍入之寺院\n大参源院\n俊乗坊\n北原\n山之坊\n土宝寺\n王宝寺\n新憶寺\n土生寺\n黒屋\n金武光明寺\n\n司\n魚山両院\n松梅院\n北郡\n堂\n日輪堂\n勝金剛坊\n南之観\n永観堂\n清浄華院\n\n司\n能林院\n利生師院\n市\n仏照院\n西之坊\n光雲寺\n同\n松林院\n\n大光寺\n霊参源院\n東\n清水浦院\n泉生寺\n宝塔院\n大仏\n立本寺\n北\n清水院\n泉浦院\n本圀寺\n本法也堂\n空法堂\n西\n霊源寺\n\n敵\n観音院\n七観\n金芳明院\n廬蕃清泊院\n宝性院\n下河原\n田\n円鏡寺\n満願寺\n順角寺\n小川\n京\n年霊社\n\n観音\n東楽明師寺\n水明院\n同\n観心寺\n本禅寺\n如覚寺\n桑\n寺町\n洛\n同\n寺\n宝徳禅寺\n東\n寺町\n宝蔵寺",
+          "confidence": 0.62
         },
         {
           "order": 37,
@@ -351,8 +351,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093266",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093266",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093266",
-          "text": "",
-          "confidence": null
+          "text": "御館入之寺院\n本城傍院\n宝城院\n光延寺\n光善護国寺\n観音寺\n観音寺\n野光観音寺\n安勢寺\n\n東国之部\n真常寺\n弘教寺\n西迎院\n本来寺\n真照院\n円照円寺\n金勝寺\n\n富田連長寺\n織宮寺\n辻村円招寺\n白幡正光寺\n八幡西楽寺\n豊常寺\n西光寺\n\n柏原\n成善捏院\n草節\n大吉寺\n韋南神宮寺\n小山玉淀寺\n念合普明寺\n常徳寺\n\n令舒\n津\n義上\n正覚寺\n信已\n義上\n濃上\n\n名屋\n西来寺\n万茶羅寺\n西松寺\n男光寺\n\n令合\n善光寺\n\n横須\n専福寺\n光長寺\n大本遠寺\n\n竹生鳴重近江\n普門院\n\n谷設\n金剛諸寺\n\n鋼製\n伊已上\n\n黄龍寺\n\n図場\n広成院\n歓楽寺\n本門寺\n万福寺",
+          "confidence": 0.47
         },
         {
           "order": 38,
@@ -360,8 +360,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093267",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093267",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093267",
-          "text": "",
-          "confidence": null
+          "text": "第九十\n御宿入之寺院\n東大寺\n吉野山\n真教院\n西徳院\n圖光寺\n龍蓮寺\n清蓮院\n蓋院\n長□\n森□\n根□\n草華院\n\n司\n鑽松院　西國之部\n大和\n散蓮寺\n久昌寺\n光智院\n司\n迎持寺\n氷漕□寺\n重楽院\n松元寺\n司\n四天王寺\n北木山寺\n大念佛寺　地上\n養珠寺　地上\n高野山　己上\n\n江□\n本鑑院\n永代寺\n司\n仙寿院\n正念寺\n司\n円成院\n吉祥寺\n本漸寺　上總\n西救寺　越後\n總\n晴本寺　下總\n萬業寺\n仰西寺\n覚峯寺　己上\n仙岳院\n常救寺\n西救寺\n本勝寺\n仙岳院\n醫王院　下野\n己上",
+          "confidence": 0.62
         },
         {
           "order": 39,
@@ -369,8 +369,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093268",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093268",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093268",
-          "text": "",
-          "confidence": null
+          "text": "室藏寺\n化生寺\n通照院\n禅徳院\n太山寺\n普光院\n観音院\n神慮院\n安楽寺\n正教寺\n\n増伝山\n大田梅寺\n問弥陀寺\n御桝屋\n金光院\n正立寺\n小島居\n神講寺\n\n身九十一\n植武天皇十年御忌\n宸華御八講之記文化二年\n明東寺\n南泉院蔵摩\n神宮寺\n萬松院\n對馬\n\n身九十二\n宝暦御潅頂之記\n\n身九十三\n東照宮百五十回御泰向之記\n明和二年",
+          "confidence": 0.72
         },
         {
           "order": 40,
@@ -378,8 +378,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093269",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093269",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093269",
-          "text": "",
-          "confidence": null
+          "text": "舞九十四\n上皇六十御賀御祈之記　寛政十二年\n舞九十五\n桜町院御中陰光明供之記　文化十年\n東照宮三百四御泰向之記　文化十二年\n舞九十六\n但上下為二巻\n舞九十七\n但自壱至四為四巻\n同記中巻\n舞九十八\n但自壱至四為四巻\n同記下巻\n舞九十九\n同雑記\n勘定\n手文\n進物\n\n舞百\n但上下為一巻　以日光之記合十三巻\n准三宮　宣下之記　文化十三年\n舞百壱\n觀宮御附弟之記\n舞百弐\n同初度御泰\n竹御泰\n院之記\n舞百三\n同御紐直之記\n舞百四\n同親王　宣下之記",
+          "confidence": 0.82
         },
         {
           "order": 41,
@@ -387,8 +387,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093270",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093270",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093270",
-          "text": "",
-          "confidence": null
+          "text": "舞百五\n尊寧親王御入室得度之記上\n舞百六\n同記中巻\n舞百七\n同記下巻\n舞百八\n同親王御住山之記上巻\n舞百九\n同記下巻\n舞百十\n同親王傳法灌頂之記上巻\n\n舞百十一\n同灌頂之記中巻\n舞百十二\n同灌頂之記下巻\n舞百十三\n入木道之記\n附門人交名\n舞百十四\n盛衣之記\n同街許容之人名年月著",
+          "confidence": 0.85
         },
         {
           "order": 42,
@@ -396,8 +396,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093271",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093271",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093271",
-          "text": "",
-          "confidence": null
+          "text": "第百十五\n色衣以下　柳　許容之記\n四　一色衣\n六　木蘭色衣\n三　緋紋　大五條袈裟\n九　車代　鈎四方輿\n土　絹代　板敷　按箱\n一　三緒五條　降架之事\n八　小五條袈裟　限当門被許之\n五　衣裳　竹門被許之\n狛子　尸　衣\n十　輦輿\n土　承補仕\n土　幕町　桃町\n十　非門下合令\n七　社人等俗服\n\n身百十六\n諸侍等館　入年月交名\n身百十七\n百姓町人館　入年月交名　附日吉社\n身百十八\n延暦寺縁起集\n身百十九\n山教拝堂雑集\n拝堂用意物目録\n鷹水御受戒之記\n尊融親王開事集\n尊敬親王拝堂受戒之記",
+          "confidence": 0.72
         },
         {
           "order": 43,
@@ -405,8 +405,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093272",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093272",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093272",
-          "text": "",
-          "confidence": null
+          "text": "第百二拾\n天台座主譜記第一\n自始\n至十七代慈慶僧都\n第百廿一\n同記第二\n自十八代慈鎮以師\n至七十代公胤推僧正\n第百廿二\n同記第三\n自七十代感頂大僧正\n至□□代□□□□\n僧正\n第百廿三\n同記第四\n自□□□□□□寺公処\n至□代□□□□□道大僧正\n第百廿四\n補\n同新記第五\n自百□□代□□□□□□□□\n至百□□代□□□□□□□典\n第百廿五\n同記第六\n自貳百十三代輪王寺公処\n至貳百□□代□□□□親王\n\n第百廿六\n同記第七\n自貳百十三代公処\n至武百□□代□□親王\n第百廿七\n延暦寺雑事之記\n第百廿八\n延暦寺堂社僧房之記\n一　天台真言□波寺記　録名目\n二　覚俊代社司　宮仕官佐勤例\n三　参覧僧招旧\n四　正覧院歴代略\n五　□法□□之事\n五　□補仕之事",
+          "confidence": 0.62
         },
         {
           "order": 44,
@@ -414,8 +414,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093273",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093273",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093273",
-          "text": "",
-          "confidence": null
+          "text": "延暦寺諸法会之雑記\n両法華会俗称退大会\n付摂願蔵辞退之記\n勧学会\n東　　　暦\n横　　　時法会\n別請竪義会\n東　前厝院法元三会\n横　　　法華八講\n東　長講会恒例\n元三会恒例\n\n東路\n二橋日吉大官社礼弁講\n同十禅師社新礼弁講\n中範\n鎮動寺勧学講\n\n日吉山王記　上",
+          "confidence": 0.62
         },
         {
           "order": 45,
@@ -423,8 +423,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093274",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093274",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093274",
-          "text": "",
-          "confidence": null
+          "text": "第百三十一\n日吉山王記　下\n行九記一巻\n四至内相模雑記二巻\n\n第百三十二\n日吉叡峯雑記\n\n第百三十三\n雲上雑集上\n\n同巻中\n斎官　皇宮　女院御傳\n鳥羽帝以後紹運録掻出\n\n同巻下\n諸進献物品目\n大典侍\n勾當内侍",
+          "confidence": 0.82
         },
         {
           "order": 46,
@@ -432,8 +432,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093275",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093275",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093275",
-          "text": "",
-          "confidence": null
+          "text": "第百三十四\n将軍家略系傳上\n一従鎌倉親朝卿傳親北條家\n至豊臣秀吉公系傳\n同傳中\n従徳川家康公\n至同家長公\n同傳下\n延同\n家斧公\n同卷\n第百三十五\n同傳上\n延同\n家長公\n\n第百三十六　幕政家略系傳左\n直衛殿　廬鷹司殿\n第百三十七　同傳右\n九條殿　二條殿　一條殿\n第百三十八\n殿上諸家略系傳上中下三巻\n\n京洛親王将軍傳\n三足利尊氏将軍系\n小室田信氏長公系傳\n大町信長公系傳",
+          "confidence": 0.62
         },
         {
           "order": 47,
@@ -441,8 +441,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093276",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093276",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093276",
-          "text": "",
-          "confidence": null
+          "text": "上巻 三橋祭洋□左流\n下巻 泊富平清安宇中ト并江\n載韓 勧修寺 四條水墨瀾\n高倉 管小路\n\n第百三十九\n親王家異系伝\n代王見殿略伝\n京柾川殿略略伝\n有院殿□略伝\n閑院門跡\n\n第百四十\n諸門跡伝第一\n東大寺門跡\n仁和寺\n\n第百四十一\n諸門跡伝第二\n大覚寺\n勧修寺\n三宝院\n随心光院 号安井\n蓮華光院\n延暦寺門跡\n円融院\n青蓮坊 号梶井\n妙法院",
+          "confidence": 0.72
         },
         {
           "order": 48,
@@ -450,8 +450,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093277",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093277",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093277",
-          "text": "",
-          "confidence": null
+          "text": "第百四十二　諸門跡傳第三\n従暦寺門跡\n毘沙門堂\n要珠院\n滋賀院　勇輸王寺\n\n第百四十三　諸門跡傳第四\n圓城寺門跡\n圓満院\n聖護院\n實相院\n\n第百四十四　諸門跡傳第五\n照高院\n興福寺門跡\n大乗院\n一乗院\n附\n知恩院\n比立尼寺\n雲華院\n安禅寺　竹",
+          "confidence": 0.72
         },
         {
           "order": 49,
@@ -459,8 +459,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093278",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093278",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093278",
-          "text": "",
-          "confidence": null
+          "text": "第百四十五上　中絶門蹟伝\n東大寺\n上乗院\n安祥寺\n禅林寺\n東南院\n\n実総院\n本光院\n瑞龍寺\n村雲\n\n大聖寺\n光照院\n宝鏡寺\n円照寺\n霊鑑寺\n林丘寺\n中宮寺\n慈受院\n三時知恩寺\n法華院\n総持院\n柳寺\n常蔓\n百村\n山谷\n音羽\n入江",
+          "confidence": 0.82
         }
       ]
     }

@@ -1,0 +1,12 @@
+{
+  "media_pkey": "0000093229",
+  "size": "L",
+  "model": "claude-sonnet-4-6",
+  "transcription": "",
+  "confidence": 0.95,
+  "illegible_count": 0,
+  "notes": "表紙のみ（華頂要略 首巻）。本文外要素のため翻刻対象外。",
+  "input_tokens": 2197,
+  "output_tokens": 57,
+  "cost_usd": 0.00745
+}
