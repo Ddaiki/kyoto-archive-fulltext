@@ -171,3 +171,29 @@ body{min-height:100vh}
 .ftr{max-width:1480px;margin:0 auto;padding:1.2rem 22px 2rem;color:var(--muted);font-size:.74rem;line-height:1.7;border-top:1px solid var(--line2)}
 .ftr a{color:var(--accent)}
 @media (max-width:820px){.ftr{padding:1.2rem 13px 2rem}}
+
+/* ===== スマホで一度に見える量を増やす（カード小型化・列数増） ===== */
+@media (max-width:820px){
+  .shelf{margin:1rem 0}
+  .shelf-h{margin-bottom:.4rem}
+  .shelf-h b{font-size:.95rem}
+  .rail{gap:9px;padding:4px 13px 10px}
+  .bcard{width:122px}
+  .bcard .bc-body{padding:.4rem .5rem .55rem}
+  .bcard .bc-type{font-size:.56rem;margin-bottom:.2rem}
+  .bcard .bc-sum{font-size:.72rem;line-height:1.35}
+  .bcard .bc-meta{font-size:.6rem;margin-top:.22rem;gap:.3rem}
+  .shelf.open .rail{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px}
+  .rv-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px}
+  .tl-wrap{padding:8px 13px 0}
+  .tl-head{margin-bottom:.3rem}
+  .tl-head b{font-size:.92rem}
+  .tl-head span{font-size:.7rem}
+  .shelves{padding:6px 0 96px}
+  .endcap{width:96px;font-size:.72rem}
+}
+@media (max-width:480px){
+  .bcard{width:108px}
+  .shelf.open .rail,.rv-grid{grid-template-columns:repeat(3,1fr)}
+  .bcard .bc-sum{-webkit-line-clamp:2}
+}
