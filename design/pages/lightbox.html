@@ -1,0 +1,20 @@
+<!-- @dsCard group="ページ探索" name="Lightbox / 画像ビューア（前後送り）" -->
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box}
+body{margin:0;height:420px;position:relative;background:#f7f5ef;overflow:hidden}
+.lightbox{position:absolute;inset:0;background:rgba(20,16,12,.85);display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:70%;max-height:80%;box-shadow:0 8px 40px rgba(0,0,0,.5);background:#fff}
+.lbClose{position:absolute;top:1rem;right:1.2rem;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer;line-height:1}
+.lbNav{position:absolute;top:50%;transform:translateY(-50%);font-size:2.6rem;color:#fff;background:rgba(0,0,0,.25);border:none;cursor:pointer;padding:.3rem .7rem;border-radius:8px}
+.lbPrev{left:1rem}.lbNext{right:1rem}
+.lbCap{position:absolute;bottom:1rem;left:0;right:0;text-align:center;color:#f3ead8;font-family:sans-serif;font-size:.82rem}
+</style></head><body>
+<div class="lightbox">
+  <button class="lbClose">×</button>
+  <button class="lbNav lbPrev">‹</button>
+  <img src="https://www.archives.kyoto.jp/websearchpe/rest/media/M?cls=150_media_old_books&pkey=0000093506" alt="拡大">
+  <button class="lbNav lbNext">›</button>
+  <div class="lbCap">第278画像　(3/57)　←→キーで前後の図面へ</div>
+</div>
+</body></html>

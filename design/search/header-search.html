@@ -1,0 +1,23 @@
+<!-- @dsCard group="検索・ナビ" name="Header + Tabs + Search" -->
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f5ef;color:#2b2622}
+header{padding:1.2rem 1.2rem .8rem;border-bottom:1px solid #e2dccf;background:linear-gradient(#fffdf8,#f7f5ef)}
+h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;margin:0 0 .2rem;font-size:1.4rem;letter-spacing:.04em}
+.proto{font-size:.56rem;vertical-align:super;margin-left:.5rem;color:#fff;background:#8a5a2b;padding:.12rem .45rem;border-radius:999px;font-family:sans-serif;letter-spacing:.08em}
+.lead{margin:.1rem 0 .7rem;color:#7a7165;font-size:.85rem}
+.tabs{display:flex;gap:.4rem;margin-bottom:.7rem;font-family:sans-serif}
+.tab{font-size:.85rem;padding:.4rem .9rem;border:1px solid #e2dccf;background:#fff;border-radius:8px 8px 0 0;color:#7a7165;cursor:pointer}
+.tab.on{background:#8a5a2b;border-color:#8a5a2b;color:#fff}
+.searchbar{display:flex;align-items:center;gap:.8rem;max-width:860px}
+#q{flex:1;padding:.6rem .9rem;font-size:1rem;border:1px solid #e2dccf;border-radius:8px;background:#fff;font-family:inherit}
+.count{color:#7a7165;font-size:.82rem;font-family:sans-serif}
+</style></head><body>
+<header>
+  <h1>京都古典籍 全文検索<span class="proto">プロトタイプ</span></h1>
+  <p class="lead">京都学・歴彩館 古典籍カタログ（全2,716件）。区分・ページ種別・建造物・年代など多角的に検索。</p>
+  <div class="tabs"><button class="tab on">カタログ（全2,716件）</button><button class="tab">華頂要略を探索 (450見開き)</button></div>
+  <div class="searchbar"><input id="q" type="search" value="塀重門" placeholder="本文・建造物・年号で検索"><span class="count">2 見開き 該当</span></div>
+</header>
+</body></html>

@@ -51,9 +51,56 @@ def build_details(pkeys: list[str] | None = None, *, refresh: bool = False) -> d
     return data
 
 
+def build_details_fast(pkeys: list[str] | None = None, *, workers: int = 3,
+                       per_worker_pause: float = 0.8) -> dict:
+    """分類クロールの並列版（取得元配慮: 各workerはリクエスト毎に休止）。再開可能。"""
+    import threading
+    import time
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    if pkeys is None:
+        pkeys = [c["pkey"] for c in build_catalog()]
+    data = _load()
+    todo = [pk for pk in pkeys if pk not in data]
+    print(f"並列詳細取得 workers={workers}: 取得済み{len(pkeys)-len(todo)} / 残り{len(todo)}", flush=True)
+
+    lock = threading.Lock()
+    referer = f"{client.BASE}/search?cls={CLS}"
+    headers = {"User-Agent": client.USER_AGENT, "Referer": referer}
+    done = 0
+
+    def work(pk: str):
+        import requests
+        r = requests.get(f"{client.BASE}/detail", params={"cls": CLS, "pkey": pk},
+                         headers=headers, timeout=40)
+        meta = parse_metadata(r.text)
+        time.sleep(per_worker_pause)
+        return pk, {f: meta.get(f, "") for f in FIELDS}
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = [ex.submit(work, pk) for pk in todo]
+        for fut in as_completed(futs):
+            try:
+                pk, fields = fut.result()
+            except Exception:
+                done += 1
+                continue
+            with lock:
+                data[pk] = fields
+                done += 1
+                if done % 100 == 0 or done == len(todo):
+                    _save(data)
+                    print(f"  {done}/{len(todo)} 取得", flush=True)
+    _save(data)
+    return data
+
+
 if __name__ == "__main__":
     import sys
-    d = build_details(refresh="--refresh" in sys.argv)
+    if "--fast" in sys.argv:
+        d = build_details_fast()
+    else:
+        d = build_details(refresh="--refresh" in sys.argv)
     from collections import Counter
     c = Counter((v.get("分類") or "（分類なし）") for v in d.values())
     print(f"完了 {len(d)}件")

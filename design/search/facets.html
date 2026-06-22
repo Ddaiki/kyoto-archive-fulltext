@@ -1,0 +1,34 @@
+<!-- @dsCard group="検索・ナビ" name="Facet chips / 絞り込み" -->
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f5ef;color:#2b2622;padding:18px;font-family:system-ui,sans-serif}
+.filter-row{display:flex;align-items:flex-start;gap:.5rem;margin:.5rem 0}
+.flabel{font-size:.74rem;color:#7a7165;white-space:nowrap;padding-top:.28rem;min-width:5em}
+.facets{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{font-size:.76rem;padding:.22rem .55rem;border:1px solid #e2dccf;background:#fff;border-radius:999px;color:#2b2622;cursor:pointer}
+.chip span{color:#7a7165;margin-left:.25rem}
+.chip.on{background:#8a5a2b;border-color:#8a5a2b;color:#fff}
+.chip.on span{color:#f3e6d6}
+.chip.quick{border-style:dashed}
+.ndc{font-size:.64rem;color:#7a7165;margin-left:.15rem}
+.sei{font-size:.66rem;color:#8a5a2b;margin-left:.2rem}
+.afilter{font-size:.72rem;background:#efe7d8;border:1px solid #e2dccf;border-radius:999px;padding:.15rem .5rem;cursor:pointer}
+</style></head><body>
+<div class="filter-row"><span class="flabel">区分</span><div class="facets">
+  <button class="chip on">古典籍 <span>949</span></button><button class="chip">貴重図書 <span>557</span></button>
+  <button class="chip">絵図・地図 <span>523</span></button><button class="chip">刷物 <span>353</span></button></div></div>
+<div class="filter-row"><span class="flabel">分類(NDC)</span><div class="facets">
+  <button class="chip">216.2<span class="ndc">歴史</span> <span>162</span></button>
+  <button class="chip on">291.62<span class="ndc">歴史</span> <span>156</span></button>
+  <button class="chip">071<span class="ndc">総記</span> <span>183</span></button></div></div>
+<div class="filter-row"><span class="flabel">ページ種別</span><div class="facets">
+  <button class="chip">本文 <span>217</span></button><button class="chip on">平面図_指図 <span>57</span></button>
+  <button class="chip">目次 <span>82</span></button><button class="chip quick">図面のみ</button></div></div>
+<div class="filter-row"><span class="flabel">年号</span><div class="facets">
+  <button class="chip">仁平三年<span class="sei">1153</span> <span>3</span></button>
+  <button class="chip">元和九年<span class="sei">1623</span> <span>2</span></button>
+  <button class="chip">文政七年<span class="sei">1824</span> <span>2</span></button></div></div>
+<div class="filter-row"><span class="flabel">適用中</span><div class="facets">
+  <span class="afilter">図面のみ ✕</span><span class="afilter">建造物:塀重門 ✕</span></div></div>
+</body></html>
