@@ -111,10 +111,11 @@ def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",
     data, in_tok, out_tok = _call(client, img, model)
     cost = _cost(model, in_tok, out_tok)
 
-    # エスカレーション条件: 本文があるのに確信度が低い or □ が多い
+    # エスカレーション条件: 真に判読困難なページに限定（L単独を既定とし費用倍化を避ける）。
+    # 検証（docs/ocr_cost.md）で確信度0.7台でもLで十分翻刻できたため、しきい値を厳しめに。
     needs_better = (
         data["transcription"].strip()
-        and (data["confidence"] < 0.85 or data["illegible_count"] >= 8)
+        and (data["confidence"] < 0.60 or data["illegible_count"] >= 15)
     )
     if escalate and needs_better:
         size = "O"

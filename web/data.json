@@ -54,8 +54,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093233",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093233",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093233",
-          "text": "",
-          "confidence": null
+          "text": "附弟御伝\n真誉宮法眼\n良誉法正\n慈賢僧正\n門首御伝\n第四慈源快大僧正\n第五入道覚親王\n第六慈源大僧正\n第七最守大僧正\n\n附弟御伝\n慈慶大僧正\n門首御伝\n第八尊助法親王\n第九道玄准三官\n第十慈実大僧正\n附弟御伝\n慈忠法印",
+          "confidence": 0.88
         },
         {
           "order": 5,
@@ -63,8 +63,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093234",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093234",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093234",
-          "text": "",
-          "confidence": null
+          "text": "門首御伝\n第十二慈助法親王\n第十三慈助大僧正\n第十四慈助添権僧正\n第十五良頭法親王\n第十六慈助行法親王\n附第十七御伝\n入道滋法行円親王\n祐道助法親王\n道滋法親王\n\n門主御伝\n第十七入道尊円親王\n附第十七御伝\n尊覚法親王\n\n門主御伝\n第十八入道尊道親王\n附第十八御伝\n慈済大僧正\n聖助法親王\n尊満大僧都",
+          "confidence": 0.82
         },
         {
           "order": 6,
@@ -72,8 +72,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093235",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093235",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093235",
-          "text": "",
-          "confidence": null
+          "text": "第拾\n門主御伝\n第十九入道道円親王\n第二十義円准三宮\n第廿一義快大僧都\n\n第十一\n門首御伝\n附弟子御伝\n第廿二尊応准三宮\n入道尊伝観王\n\n\n第十二\n門首御伝\n附弟子御伝\n第廿三入道尊鋼親王\n童杉宮\n\n第十三\n門首御伝\n第廿四尊朝法親王\n\n第十四\n門首御伝\n第廿五尊純法親王\n附\n入道尊敬親王輸門祖",
+          "confidence": 0.72
         },
         {
           "order": 7,
@@ -81,8 +81,8 @@
           "thumb": "https://www.archives.kyoto.jp/websearchpe/rest/media/S?cls=150_media_old_books&pkey=0000093236",
           "image": "https://www.archives.kyoto.jp/websearchpe/rest/media/L?cls=150_media_old_books&pkey=0000093236",
           "image_full": "https://www.archives.kyoto.jp/websearchpe/rest/media/O?cls=150_media_old_books&pkey=0000093236",
-          "text": "",
-          "confidence": null
+          "text": "第十五\n門首御伝\n第廿六入道尊諡親王\n附苔柳伝\n童形宮\n\n第十六\n門首柳伝\n第十七入道尊祐親王\n自元禄十二年\n至享保十六年\n\n第十七\n門首柳伝\n\n同親王\n自享保十七年\n至延享四年\n\n第十八\n門首御伝\n第廿八道尊英親王\n\n第十九\n門首御伝\n第廿九道尊□与\n親王\n寛暦年中",
+          "confidence": 0.72
         },
         {
           "order": 8,
