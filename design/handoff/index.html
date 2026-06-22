@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>京都古典籍 — 全体UXパターン</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 90px}
+header.hd{margin-bottom:8px}
+.eyebrow{font-size:.74rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:.5rem}
+.hd h1{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.03em;margin:.1rem 0 .4rem}
+.hd p{color:var(--muted);font-size:.96rem;line-height:1.7;max-width:660px;margin:0}
+/* spectrum */
+.spectrum{margin:30px 0 34px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px 14px}
+.spectrum .lbls{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:.5rem}
+.spectrum .lbls b{color:var(--ink);font-family:var(--serif)}
+.track{position:relative;height:6px;background:linear-gradient(90deg,var(--diagram),var(--accent));border-radius:99px;margin:18px 0 30px}
+.pin{position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.pin .knob{width:18px;height:18px;border-radius:50%;background:var(--card);border:3px solid var(--ink);box-shadow:var(--sh)}
+.pin .pl{position:absolute;top:20px;font-size:.72rem;white-space:nowrap;color:var(--ink2);font-weight:600}
+/* grid of cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .16s,box-shadow .16s}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.pc-vis{background:linear-gradient(160deg,var(--bg2),#e9e1d0);padding:22px 22px 0;height:188px;position:relative;overflow:hidden}
+.pc-tag{position:absolute;top:14px;left:16px;font-size:.66rem;font-family:var(--sans);background:var(--ink);color:#fff;padding:.18rem .5rem;border-radius:6px;letter-spacing:.04em;z-index:2}
+/* schematic skeletons */
+.skel{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;gap:14px;align-items:flex-end}
+.dev{background:var(--card);border:1px solid var(--line);border-radius:8px 8px 0 0;box-shadow:0 -2px 10px rgba(43,38,34,.07);overflow:hidden}
+.dev.desktop{width:206px;height:128px}
+.dev.phone{width:58px;height:118px;border-radius:12px 12px 0 0}
+.sk-bar{height:10px;background:#ece4d4;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 4px;gap:3px}
+.sk-bar i{display:block;height:4px;border-radius:2px;background:#cdbfa6}
+.sk-row{display:flex;height:calc(100% - 10px)}
+.sk-side{width:34px;background:#efe7d6;border-right:1px solid var(--line)}
+.sk-main{flex:1;padding:5px;display:grid;gap:3px}
+.sk-aside{width:48px;background:#f3ecdc;border-left:1px solid var(--line)}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.cellimg{background:linear-gradient(135deg,#dfd3bb,#cbbb9a);border-radius:2px;aspect-ratio:1}
+.cellbig{grid-column:span 2;grid-row:span 2}
+.line{height:4px;background:#ddd1b8;border-radius:2px}
+.line.s{width:60%}
+.railbox{display:flex;gap:3px;overflow:hidden}
+.railbox b{flex:none;width:20px;height:26px;background:linear-gradient(160deg,#dfd3bb,#cbbb9a);border-radius:2px;display:block}
+.tldot{height:3px;background:var(--accent);border-radius:2px;margin:3px 0 5px;position:relative}
+.tldot::after{content:"";position:absolute;left:30%;top:-2px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.phone .sk-main{padding:3px;gap:2px}
+.phone .tabbar{height:12px;background:#efe7d6;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center}
+.phone .tabbar i{width:5px;height:5px;border-radius:50%;background:#c3b291}
+.pc-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.pc-body h2{font-family:var(--serif);font-size:1.2rem;margin:.1rem 0 .15rem}
+.pc-body .meta{font-size:.7rem;color:var(--accent);font-weight:600;letter-spacing:.03em;margin-bottom:.5rem}
+.pc-body .desc{font-size:.86rem;color:var(--ink2);line-height:1.7;margin:0 0 .8rem}
+.feat{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.35rem}
+.feat li{font-size:.8rem;color:var(--muted);padding-left:1.1rem;position:relative;line-height:1.5}
+.feat li::before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.feat li b{color:var(--ink);font-weight:600}
+.pc-foot{margin-top:auto;display:flex;gap:.5rem}
+.open{flex:1;text-align:center;background:var(--accent);color:#fff;border-radius:10px;padding:.62rem;font-size:.88rem;font-weight:600}
+.open:hover{background:#74491f}
+.dev-note{margin-top:34px;font-size:.8rem;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:18px}
+.dev-note b{color:var(--ink2)}
+@media (max-width:900px){ .cards{grid-template-columns:1fr;gap:16px} .skel .dev.phone{display:none} .hd h1{font-size:1.6rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hd">
+    <div class="eyebrow">京都古典籍 全文検索 ／ 全体UXパターン</div>
+    <h1>資料を「俯瞰」し、目的に「最短」で。</h1>
+    <p>歴史系の若手研究者が、SNSの感覚で書庫を雑見しながら、必要な一件へ短距離で到達できる。
+       同じデータ・同じ配色で、ナビ構造（情報の並べ方）だけを変えた3案です。スマホ／PCを自動で判別し、各々に合った操作感に切り替わります。クリックして実際に触り比べてください。</p>
+  </header>
+
+  <section class="spectrum">
+    <div class="lbls"><span><b>俯瞰・雑見</b>　書庫を歩く / 偶然の出会い</span><span>目的へ最短 / 情報検索　<b>ピンポイント</b></span></div>
+    <div class="track">
+      <div class="pin" style="left:22%"><span class="knob"></span><span class="pl">A 発見グリッド</span></div>
+      <div class="pin" style="left:40%"><span class="knob"></span><span class="pl">B 書架＋年表</span></div>
+      <div class="pin" style="left:84%"><span class="knob"></span><span class="pl">C ファインダー</span></div>
+    </div>
+  </section>
+
+  <div class="cards">
+    <!-- A -->
+    <a class="pcard" href="discover-grid.html">
+      <div class="pc-vis"><span class="pc-tag">Pattern A</span>
+        <div class="skel">
+          <div class="dev desktop"><div class="sk-bar"><i style="width:30px;background:#cdbfa6"></i><i style="width:80px;background:#ddd1b8;margin-left:auto;margin-right:auto"></i></div>
+            <div class="sk-main g3"><div class="cellimg cellbig"></div><div class="cellimg"></div><div class="cellimg"></div><div class="cellimg"></div><div class="cellimg"></div><div class="cellimg"></div><div class="cellimg"></div></div></div>
+          <div class="dev phone"><div class="sk-bar"><i style="width:30px;background:#ddd1b8;margin:auto"></i></div>
+            <div class="sk-main g3" style="grid-auto-rows:11px"><span class="cellimg"></span><span class="cellimg"></span><span class="cellimg"></span><span class="cellimg"></span><span class="cellimg"></span><span class="cellimg"></span></div>
+            <div class="tabbar"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="meta">Instagram の発見タブ</div>
+        <h2>発見グリッド</h2>
+        <p class="desc">全資料を画像のモザイクとして一望。眺めながら気になった見開きへ飛び込む、ブラウズ起点の体験。</p>
+        <ul class="feat">
+          <li><b>PC</b>: 密なモザイク＋右に詳細パネル、ホバーで情報表示</li>
+          <li><b>スマホ</b>: 全面グリッド＋下部タブ、タップで全画面ビュー</li>
+          <li>検索バーは<b>コマンドパレット</b>化（建造物・資料・年代を即サジェスト）</li>
+        </ul>
+        <div class="pc-foot"><span class="open">このパターンを開く ›</span></div>
+      </div>
+    </a>
+
+    <!-- B -->
+    <a class="pcard" href="shelf-timeline.html">
+      <div class="pc-vis"><span class="pc-tag">Pattern B</span>
+        <div class="skel">
+          <div class="dev desktop"><div class="sk-bar"><i style="width:30px;background:#cdbfa6"></i></div>
+            <div class="sk-main" style="display:block"><div class="tldot"></div>
+              <div class="railbox" style="margin-bottom:4px"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+              <div class="railbox"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div>
+          <div class="dev phone"><div class="sk-bar"><i style="width:30px;background:#ddd1b8;margin:auto"></i></div>
+            <div class="sk-main" style="display:block;padding:3px"><div style="display:flex;gap:2px;margin-bottom:3px"><b style="width:14px;height:6px;background:var(--diagram);border-radius:3px"></b><b style="width:10px;height:6px;background:#ddd1b8;border-radius:3px"></b><b style="width:10px;height:6px;background:#ddd1b8;border-radius:3px"></b></div>
+              <div class="railbox" style="margin-bottom:3px"><b style="width:16px;height:22px"></b><b style="width:16px;height:22px"></b><b style="width:16px;height:22px"></b></div>
+              <div class="railbox"><b style="width:16px;height:22px"></b><b style="width:16px;height:22px"></b><b style="width:16px;height:22px"></b></div></div></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="meta">年表 × Netflix の棚</div>
+        <h2>書架＋年表</h2>
+        <p class="desc">12〜19世紀の年表リボンと、テーマ別の横スクロール書架。時代と主題で「書庫を歩く」空間的な探索。</p>
+        <ul class="feat">
+          <li><b>PC</b>: 年表の点＝資料、世紀をクリックで棚を絞り込み</li>
+          <li><b>スマホ</b>: 世紀チップ＋棚を縦積み、各棚を横スワイプ</li>
+          <li>偶然の出会いを誘発する<b>テーマ別キュレーション</b></li>
+        </ul>
+        <div class="pc-foot"><span class="open">このパターンを開く ›</span></div>
+      </div>
+    </a>
+
+    <!-- C -->
+    <a class="pcard" href="finder.html">
+      <div class="pc-vis"><span class="pc-tag">Pattern C</span>
+        <div class="skel">
+          <div class="dev desktop"><div class="sk-bar"><i style="width:60px;background:#ddd1b8;margin:auto"></i></div>
+            <div class="sk-row"><div class="sk-side"></div>
+              <div class="sk-main" style="gap:4px"><div class="line"></div><div class="line s"></div><div class="line"></div><div class="line s"></div><div class="line"></div></div>
+              <div class="sk-aside"></div></div></div>
+          <div class="dev phone"><div class="sk-bar"><i style="width:34px;background:#ddd1b8;margin:auto"></i></div>
+            <div class="sk-main" style="display:block;padding:4px;gap:3px"><div class="line" style="margin-bottom:4px"></div><div class="line s" style="margin-bottom:4px"></div><div class="line" style="margin-bottom:4px"></div><div class="line s"></div></div></div>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="meta">ファイル検索 / Notion の二段組</div>
+        <h2>二段組ファインダー</h2>
+        <p class="desc">ファセット・一覧・即時詳細の三分割。条件を積んで目的の一件へ最短到達する、情報検索に最適化した骨格。</p>
+        <ul class="feat">
+          <li><b>PC</b>: 左ファセット＋中央一覧＋右に即時プレビュー、↑↓で移動</li>
+          <li><b>スマホ</b>: 一覧→詳細へプッシュ遷移、絞り込みは下シート</li>
+          <li>「俯瞰」トグルで一覧をグリッドに切替＝<b>探索とも両立</b></li>
+        </ul>
+        <div class="pc-foot"><span class="open">このパターンを開く ›</span></div>
+      </div>
+    </a>
+  </div>
+
+  <p class="dev-note"><b>共通の前提</b> ── 配色・和文タイポ・ファセット・翻刻＋固有表現は既存デザインシステムを踏襲。3案とも実データ風（華頂要略の指図・都名所図会・京都図ほか）で動作します。画像は京都学・歴彩館アーカイブを参照（読み込み待ちの間は和紙風のプレースホルダ表示）。気に入った方向を選んでいただければ、それを正式なテンプレートに仕上げ、細部を詰めていきます。</p>
+</div>
+</body>
+</html>

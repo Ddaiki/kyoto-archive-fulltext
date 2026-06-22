@@ -1,77 +1,49 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="night">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>京都古典籍 全文検索（プロトタイプ）</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>書架＋年表 — 京都古典籍 全文検索</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>京都古典籍 全文検索<span class="proto">プロトタイプ</span></h1>
-    <p class="lead">京都学・歴彩館 古典籍カタログ（全2,716件）。区分・ページ種別・建造物・年代など多角的に検索できます。</p>
-
-    <div class="tabs">
-      <button class="tab on" data-tab="catalog">カタログ（全2,716件）</button>
-      <button class="tab" data-tab="pages">華頂要略を探索 <span id="pgCount" class="tabnum"></span></button>
+<div class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span><span class="serif">京都古典籍</span><span class="txt modetag">書架＋年表で巡る</span></div>
+    <div class="search" id="search"><span class="ic">⌕</span>
+      <input id="q" type="search" placeholder="本文・建造物・資料名・年号で検索" autocomplete="off">
+      <div class="suggest" id="suggest"></div>
     </div>
-
-    <div class="searchbar">
-      <input id="q" type="search" placeholder="本文・タイトル・建造物・人名・年号で検索（例: 塀重門 / 親王 / 元和 / 地図）" autocomplete="off">
-      <span id="count" class="count"></span>
-    </div>
-
-    <!-- カタログ用フィルタ -->
-    <div class="filters" id="catFilters">
-      <div class="filter-row"><span class="flabel">区分</span><div id="facets" class="facets"></div></div>
-      <div class="filter-row"><span class="flabel">分類(NDC)</span><div id="clsFacets" class="facets scroll"></div>
-        <label class="toggle"><input type="checkbox" id="onlyTx"> 翻刻ありのみ</label></div>
-    </div>
-
-    <!-- ページ探索用フィルタ -->
-    <div class="filters hidden" id="pageFilters">
-      <div class="filter-row">
-        <span class="flabel">ページ種別</span>
-        <div id="typeFacets" class="facets"></div>
-        <button id="onlyDiagram" class="chip quick">図面のみ</button>
-      </div>
-      <div class="filter-row">
-        <span class="flabel">建造物</span>
-        <div id="buildingFacets" class="facets scroll"></div>
-      </div>
-      <div class="filter-row">
-        <span class="flabel">年号</span>
-        <div id="yearFacets" class="facets scroll"></div>
-      </div>
-      <div class="filter-row">
-        <span class="flabel">表示</span>
-        <button class="viewmode on" data-view="list">リスト</button>
-        <button class="viewmode" data-view="gallery">ギャラリー（図面閲覧）</button>
-        <span id="activeFilters" class="active-filters"></span>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div id="catResults" class="results"></div>
-    <div id="pageResults" class="results hidden"></div>
-  </main>
-
-  <footer>
-    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）。画像は提供元サーバを参照。</p>
-    <p>翻刻: 「AI構造化」頁は Claude vision、「NDL翻刻」頁は
-      <a href="https://github.com/ndl-lab/ndlkotenocr-lite" target="_blank" rel="noopener">NDL古典籍OCR-Lite（国立国会図書館, CC BY 4.0）</a>
-      による自動翻刻（いずれも校正前）。分類はNDC。</p>
-  </footer>
-
-  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
-    <button id="lbClose" class="lbClose" aria-label="閉じる">×</button>
-    <button id="lbPrev" class="lbNav lbPrev" aria-label="前の画像">‹</button>
-    <img id="lbImg" alt="拡大画像">
-    <button id="lbNext" class="lbNav lbNext" aria-label="次の画像">›</button>
-    <div id="lbCap" class="lbCap"></div>
   </div>
+</div>
 
-  <script src="app.js"></script>
+<div class="tl-wrap">
+  <div class="tl-head"><b>年表で巡る</b><span id="tlsub">点をクリックで資料へ、世紀をクリック／帯をドラッグで年代を絞り込み</span>
+    <button class="clear" id="tlclear">年代の絞り込みを解除 ✕</button></div>
+  <div class="timeline" id="timeline">
+    <div class="tl-band" id="tlband"></div>
+    <div class="tl-hint">ドラッグで範囲選択</div>
+    <div class="tl-axis"></div>
+  </div>
+  <div class="tl-chips" id="tlchips"></div>
+</div>
+
+<div class="applied" id="applied"></div>
+<div class="shelves" id="shelves"></div>
+<section class="recview" id="recview"></section>
+
+<div class="modal" id="modal"><div class="dcard" id="dcard"></div></div>
+
+<div class="palette" id="palette">
+  <button class="pal-x" id="palMin" title="畳む">▾</button>
+  <div class="pal-h">配色 <span>藍鉄ナイト 確定</span></div>
+  <div class="pal-opts" id="palOpts"></div>
+</div>
+<button class="pal-min" id="palOpen">◧ 配色</button>
+
+<footer class="ftr" id="ftr"></footer>
+
+<script src="app.js"></script>
 </body>
 </html>

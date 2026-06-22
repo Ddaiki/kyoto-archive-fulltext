@@ -73,6 +73,7 @@ def build(detailed_pkeys: list[str]) -> Path:
         "restriction": c.get("閲覧制限", ""),
         "classification": (details.get(c["pkey"], {}) or {}).get("分類", ""),
         "call_number": (details.get(c["pkey"], {}) or {}).get("請求記号", ""),
+        "blurb": (details.get(c["pkey"], {}) or {}).get("解説", ""),
     } for c in cat]
 
     by_pkey = {r["pkey"]: r for r in records}

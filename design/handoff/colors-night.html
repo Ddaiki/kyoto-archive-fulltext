@@ -1,0 +1,46 @@
+<!-- @dsCard group="Foundations" name="Colors / 藍鉄ナイト（近未来・確定）" viewport="760x520" -->
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,"Hiragino Kaku Gothic ProN",sans-serif;background:#0e1422;color:#eef3fb;padding:24px}
+h2{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:1.1rem;margin:0 0 .3rem;font-weight:600}
+.lead{color:#8493ad;font-size:.82rem;margin:0 0 1.2rem;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px}
+.sw{border:1px solid #283651;border-radius:11px;overflow:hidden;background:#18233a}
+.chip{height:66px;position:relative}
+.chip.glow::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 24px rgba(0,0,0,.25)}
+.meta{padding:.5rem .6rem;font-size:.72rem;line-height:1.5}
+.meta b{display:block;font-size:.78rem;letter-spacing:.02em}
+.role{color:#8493ad}
+.sec{font-size:.66rem;letter-spacing:.1em;color:#5d6b86;text-transform:uppercase;margin:1.4rem 0 .5rem}
+</style></head><body>
+<h2>藍鉄ナイト — 近未来配色（Pattern B 確定）</h2>
+<p class="lead">深い藍鉄の地に、発光するシアン／アクアのアクセント。和の古典籍画像を暗い面で際立たせ、若手研究者に馴染むモダンな操作感を与える。種別バッジは発光ピル＋濃インク文字。</p>
+
+<div class="sec">サーフェス</div>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#0e1422"></div><div class="meta"><b>--bg #0E1422</b><span class="role">背景（藍鉄）</span></div></div>
+  <div class="sw"><div class="chip" style="background:#141d30"></div><div class="meta"><b>--bg2 #141D30</b><span class="role">沈み面・棚端</span></div></div>
+  <div class="sw"><div class="chip" style="background:#18233a"></div><div class="meta"><b>--card #18233A</b><span class="role">カード面</span></div></div>
+  <div class="sw"><div class="chip" style="background:#283651"></div><div class="meta"><b>--line #283651</b><span class="role">罫線・枠</span></div></div>
+  <div class="sw"><div class="chip" style="background:#070b14"></div><div class="meta"><b>--imgbg #070B14</b><span class="role">画像ビューア地</span></div></div>
+</div>
+
+<div class="sec">テキスト</div>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#eef3fb"></div><div class="meta"><b>--ink #EEF3FB</b><span class="role">本文・見出し</span></div></div>
+  <div class="sw"><div class="chip" style="background:#c5d0e4"></div><div class="meta"><b>--ink2 #C5D0E4</b><span class="role">説明・翻刻</span></div></div>
+  <div class="sw"><div class="chip" style="background:#8493ad"></div><div class="meta"><b>--muted #8493AD</b><span class="role">補助ラベル</span></div></div>
+  <div class="sw"><div class="chip" style="background:#5d6b86"></div><div class="meta"><b>--faint #5D6B86</b><span class="role">微弱・節題</span></div></div>
+</div>
+
+<div class="sec">アクセント（発光）</div>
+<div class="grid">
+  <div class="sw"><div class="chip glow" style="background:#46c8f5"></div><div class="meta"><b>--accent #46C8F5</b><span class="role">主アクセント（シアン）／本文バッジ</span></div></div>
+  <div class="sw"><div class="chip glow" style="background:#34e0c4"></div><div class="meta"><b>--diagram #34E0C4</b><span class="role">図面・絵図バッジ／年表ハイライト</span></div></div>
+  <div class="sw"><div class="chip glow" style="background:#8b9bff"></div><div class="meta"><b>--accent2 #8B9BFF</b><span class="role">年号・口絵バッジ</span></div></div>
+  <div class="sw"><div class="chip glow" style="background:#b794f6"></div><div class="meta"><b>--ent #B794F6</b><span class="role">人名・構造化注記</span></div></div>
+  <div class="sw"><div class="chip" style="background:#1f4e6b"></div><div class="meta"><b>mark #1F4E6B</b><span class="role">全文検索ハイライト地</span></div></div>
+  <div class="sw"><div class="chip" style="background:#0a1120"></div><div class="meta"><b>--badge-ink #0A1120</b><span class="role">発光バッジの文字</span></div></div>
+</div>
+</body></html>

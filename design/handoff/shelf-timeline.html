@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>書架＋年表 — 京都古典籍（藍鉄ナイト）</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ============ テーマ（藍鉄ナイト＝確定。他は比較用） ============ */
+html[data-theme="night"]{
+  --bg:#0e1422;--bg2:#141d30;--card:#18233a;--ink:#eef3fb;--ink2:#c5d0e4;--muted:#8493ad;--faint:#5d6b86;
+  --accent:#46c8f5;--accent2:#8b9bff;--diagram:#34e0c4;--ent:#b794f6;--mark:#1f4e6b;
+  --line:#283651;--line2:#1e2942;--imgbg:#070b14;--badge-ink:#0a1120;
+  --topbg:rgba(14,20,34,.82);--scrim:rgba(6,10,20,.66);
+  --sh:0 1px 2px rgba(0,0,0,.4),0 8px 22px rgba(0,0,0,.45);--sh-lg:0 2px 8px rgba(0,0,0,.5),0 24px 60px rgba(0,0,0,.62);
+}
+html[data-theme="neon"]{--bg:#0a163a;--bg2:#0e1f50;--card:#142a63;--ink:#eaf1ff;--ink2:#bccaef;--muted:#8092c6;--faint:#5566a0;--accent:#19d3ff;--accent2:#ff5dd0;--diagram:#2bf0a8;--ent:#c77dff;--mark:#163a78;--line:#23397a;--line2:#172a60;--imgbg:#05102e;--badge-ink:#06122e;--topbg:rgba(10,22,58,.82);--scrim:rgba(4,8,26,.66);--sh:0 1px 2px rgba(0,0,0,.4),0 8px 22px rgba(2,6,26,.5);--sh-lg:0 2px 8px rgba(0,0,0,.5),0 24px 60px rgba(2,6,26,.66)}
+html[data-theme="jade"]{--bg:#13161a;--bg2:#1a1e24;--card:#1f242c;--ink:#eef1ee;--ink2:#c4cbc4;--muted:#8a928c;--faint:#5e655f;--accent:#34d39f;--accent2:#e0b341;--diagram:#46cfc4;--ent:#bfa0e8;--mark:#1d4a3c;--line:#2c323a;--line2:#23282f;--imgbg:#0a0c0e;--badge-ink:#0a120e;--topbg:rgba(19,22,26,.84);--scrim:rgba(6,8,10,.66);--sh:0 1px 2px rgba(0,0,0,.4),0 8px 22px rgba(0,0,0,.45);--sh-lg:0 2px 8px rgba(0,0,0,.5),0 24px 60px rgba(0,0,0,.6)}
+html[data-theme="chrome"]{--bg:#eef1f6;--bg2:#e5e9f1;--card:#ffffff;--ink:#161d2b;--ink2:#3a4456;--muted:#697488;--faint:#9aa3b4;--accent:#3b5bdb;--accent2:#6741d9;--diagram:#0ca678;--ent:#6741d9;--mark:#cfe1ff;--line:#dbe1ec;--line2:#e8ecf3;--imgbg:#0b1020;--badge-ink:#ffffff;--topbg:rgba(238,241,246,.82);--scrim:rgba(20,28,46,.4);--sh:0 1px 2px rgba(20,28,46,.06),0 6px 18px rgba(20,28,46,.08);--sh-lg:0 2px 8px rgba(20,28,46,.1),0 24px 56px rgba(20,28,46,.16)}
+html[data-theme="sepia"]{--bg:#f4f1e8;--bg2:#efeadd;--card:#fffdf8;--ink:#2b2622;--ink2:#4a423a;--muted:#7a7165;--faint:#a89e8d;--accent:#8a5a2b;--accent2:#a36d36;--diagram:#2f6f6a;--ent:#5a3a6a;--mark:#ffe1a8;--line:#e2dccf;--line2:#ece6d8;--imgbg:#15110c;--badge-ink:#fff;--topbg:rgba(244,241,232,.9);--scrim:rgba(28,22,16,.55);--sh:0 1px 2px rgba(43,38,34,.05),0 6px 18px rgba(43,38,34,.06);--sh-lg:0 2px 6px rgba(43,38,34,.08),0 20px 48px rgba(43,38,34,.14)}
+html,body{transition:background-color .35s}
+body{min-height:100vh}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.imgwrap{background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--ink) 6%,transparent) 0 1px,transparent 1px 14px),linear-gradient(150deg,color-mix(in srgb,var(--card) 60%,var(--bg)),var(--bg2))}
+.imgwrap::after{color:color-mix(in srgb,var(--ink) 26%,var(--card));opacity:.7}
+
+.top{position:sticky;top:0;z-index:40;background:var(--topbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:14px;padding:11px 22px;max-width:1480px;margin:0 auto}
+.brand{font-family:var(--serif);font-size:1.05rem;letter-spacing:.04em;display:flex;align-items:center;gap:.5rem;white-space:nowrap;color:var(--ink)}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--diagram);box-shadow:0 0 10px var(--diagram)}
+.search{flex:1;position:relative;max-width:520px}
+.search input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:.55rem 1rem .55rem 2.3rem;font-size:.92rem;box-shadow:var(--sh);color:var(--ink)}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{outline:none;border-color:var(--diagram);box-shadow:0 0 0 3px color-mix(in srgb,var(--diagram) 30%,transparent)}
+.search .ic{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--faint)}
+.modetag{font-size:.72rem;color:var(--muted);white-space:nowrap}
+/* suggest */
+.suggest{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);padding:8px;display:none;max-height:64vh;overflow:auto;z-index:50}
+.suggest.show{display:block}
+.sg-h{font-size:.64rem;color:var(--faint);letter-spacing:.08em;padding:.5rem .7rem .25rem;text-transform:uppercase}
+.sg-i{display:flex;align-items:center;gap:.6rem;padding:.5rem .7rem;border-radius:9px;cursor:pointer;font-size:.9rem;color:var(--ink)}
+.sg-i:hover,.sg-i.cur{background:var(--bg2)}
+.sg-i .tag{font-size:.6rem;color:var(--badge-ink);padding:.1rem .42rem;border-radius:5px;font-weight:600;white-space:nowrap}
+.sg-i .n{margin-left:auto;color:var(--faint);font-size:.76rem}
+
+/* ---- timeline ---- */
+.tl-wrap{max-width:1480px;margin:0 auto;padding:14px 22px 4px}
+.tl-head{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.5rem}
+.tl-head b{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+.tl-head span{font-size:.76rem;color:var(--muted)}
+.tl-head .clear{margin-left:auto;font-size:.74rem;color:var(--accent);cursor:pointer;display:none;background:none;border:none}
+.timeline{position:relative;height:96px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--card),var(--bg2));overflow:hidden;user-select:none;cursor:crosshair;touch-action:none}
+.tl-axis{position:absolute;left:0;right:0;bottom:26px;height:2px;background:var(--line)}
+.tl-cent{position:absolute;bottom:0;transform:translateX(-50%);text-align:center;cursor:pointer}
+.tl-cent .tick{width:1px;height:12px;background:var(--faint);margin:0 auto 4px}
+.tl-cent .lab{font-size:.66rem;color:var(--muted);white-space:nowrap}
+.tl-band{position:absolute;top:8px;bottom:26px;background:color-mix(in srgb,var(--diagram) 16%,transparent);border-left:1.5px solid color-mix(in srgb,var(--diagram) 70%,transparent);border-right:1.5px solid color-mix(in srgb,var(--diagram) 70%,transparent);display:none;pointer-events:none}
+.tl-hint{position:absolute;top:10px;left:14px;font-size:.66rem;color:var(--faint);pointer-events:none}
+.tl-dot{position:absolute;bottom:26px;transform:translate(-50%,50%);width:13px;height:13px;border-radius:50%;background:var(--accent);border:2px solid var(--card);cursor:pointer;transition:transform .12s,background .12s,box-shadow .12s;z-index:3}
+.tl-dot:hover{transform:translate(-50%,50%) scale(1.5);box-shadow:0 0 12px var(--accent)}
+.tl-dot.diff{background:var(--diagram)}.tl-dot.diff:hover{box-shadow:0 0 12px var(--diagram)}
+.tl-dot.on{background:var(--ink);transform:translate(-50%,50%) scale(1.6)}
+.tl-flag{position:absolute;transform:translateX(-50%);bottom:46px;font-size:.66rem;font-family:var(--serif);background:var(--ink);color:var(--bg);padding:.12rem .45rem;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:.12s;z-index:5}
+.tl-dot:hover + .tl-flag{opacity:1}
+
+/* applied filter bar */
+.applied{max-width:1480px;margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.applied:empty{display:none}
+.applied .al{font-size:.72rem;color:var(--faint)}
+.atag{font-size:.74rem;background:color-mix(in srgb,var(--diagram) 14%,var(--card));border:1px solid color-mix(in srgb,var(--diagram) 38%,var(--card));border-radius:999px;padding:.16rem .6rem;cursor:pointer;color:var(--ink)}
+.atag .x{color:var(--muted);margin-left:.3rem}
+
+/* ---- shelves ---- */
+.shelves{max-width:1480px;margin:0 auto;padding:10px 0 120px}
+.shelf{margin:1.4rem 0}
+.shelf-h{display:flex;align-items:baseline;gap:.6rem;padding:0 22px;margin-bottom:.6rem}
+.shelf-h b{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink)}
+.shelf-h .n{font-size:.74rem;color:var(--muted)}
+.shelf-h .more{margin-left:auto;font-size:.74rem;color:var(--accent);background:none;border:none;cursor:pointer}
+.rail{display:flex;gap:12px;overflow-x:auto;padding:4px 22px 12px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.rail::-webkit-scrollbar{height:8px}.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.shelf.open .rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));overflow:visible;scroll-snap-type:none}
+.bcard{flex:none;width:188px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.shelf.open .bcard{width:auto}
+.bcard:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:color-mix(in srgb,var(--diagram) 50%,var(--line))}
+.bcard .imgwrap{aspect-ratio:3/4;border-radius:0}
+.bcard .bc-body{padding:.55rem .65rem .7rem}
+.bcard .bc-type{font-size:.6rem;color:var(--badge-ink);padding:.1rem .42rem;border-radius:5px;display:inline-block;margin-bottom:.3rem;font-weight:600}
+.bcard .bc-sum{font-family:var(--serif);font-size:.8rem;line-height:1.45;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bcard .bc-meta{font-size:.66rem;color:var(--muted);margin-top:.35rem;display:flex;gap:.4rem;flex-wrap:wrap}
+.bcard .bc-meta .yr{color:var(--accent)}
+.shelf.dim{opacity:.3}
+.endcap{flex:none;width:120px;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.78rem;text-align:center;background:var(--bg2);cursor:pointer}
+.shelf.open .endcap{display:none}
+.empty{max-width:1480px;margin:3rem auto;text-align:center;color:var(--muted);padding:0 22px}
+
+/* ---- record (book) view ---- */
+.recview{max-width:1480px;margin:0 auto;padding:6px 22px 120px;display:none}
+.recview.show{display:block}
+.rv-back{background:none;border:none;color:var(--accent);font-size:.84rem;cursor:pointer;padding:.3rem 0;margin-bottom:.6rem}
+.rv-head{display:flex;gap:1rem;align-items:flex-start;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1rem 1.2rem;margin-bottom:1rem}
+.rv-head .rv-cover{width:96px;flex:none;border-radius:8px;aspect-ratio:3/4}
+.rv-head h2{font-family:var(--serif);font-size:1.35rem;margin:.1rem 0 .2rem;color:var(--ink)}
+.rv-head .rv-yomi{font-size:.78rem;color:var(--muted);font-weight:normal;margin-left:.4rem}
+.rv-head .rv-meta{font-size:.78rem;color:var(--muted);line-height:1.7}
+.rv-head .rv-blurb{font-family:var(--serif);color:var(--ink2);margin:.5rem 0 0;line-height:1.7}
+.rv-badge{display:inline-block;font-size:.66rem;color:var(--badge-ink);background:var(--accent);padding:.12rem .5rem;border-radius:5px;font-weight:600;margin-bottom:.4rem}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+
+/* ---- detail modal ---- */
+.modal{position:fixed;inset:0;z-index:70;background:var(--scrim);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal.show{display:flex}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:18px;max-width:900px;width:100%;max-height:90vh;overflow:auto;box-shadow:var(--sh-lg);display:grid;grid-template-columns:340px 1fr;position:relative}
+.dcard .dimg{position:relative;background:var(--imgbg);min-height:360px}
+.dcard .dimg .imgwrap{position:absolute;inset:0;border-radius:0;background:var(--imgbg)}
+.dcard .dimg img{object-fit:contain}
+.dnav{position:absolute;bottom:.7rem;left:.7rem;display:flex;gap:.4rem}
+.dnav button{width:34px;height:34px;border-radius:8px;border:none;background:color-mix(in srgb,var(--card) 88%,transparent);color:var(--ink);font-size:1.1rem;box-shadow:var(--sh)}
+.dpos{position:absolute;bottom:1rem;right:.8rem;font-size:.7rem;color:#fff;background:rgba(0,0,0,.4);padding:.12rem .5rem;border-radius:6px}
+.dcard .dbody{padding:1.3rem 1.5rem 1.7rem}
+.dclose{position:absolute;top:.7rem;right:.8rem;width:32px;height:32px;border-radius:50%;border:none;background:var(--bg2);color:var(--ink);font-size:1.2rem;z-index:4}
+.dmeta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.72rem;color:var(--muted);margin-bottom:.5rem}
+.dmeta .ptype{color:var(--badge-ink);padding:.1rem .45rem;border-radius:5px;font-size:.66rem;font-weight:600}
+.dmeta .src{background:color-mix(in srgb,var(--ent) 16%,var(--card));color:var(--ent);padding:.1rem .45rem;border-radius:5px}
+.dtitle{font-family:var(--serif);font-size:1.3rem;margin:.1rem 0 .3rem;line-height:1.4;color:var(--ink)}
+.dsum{font-family:var(--serif);color:var(--ink2);line-height:1.75;margin:.2rem 0 .9rem}
+.sect-h{font-size:.68rem;color:var(--faint);letter-spacing:.06em;margin:.9rem 0 .4rem}
+.ents{display:flex;flex-wrap:wrap;gap:.3rem}
+.ent{font-size:.76rem;border:1px solid color-mix(in srgb,var(--ck,var(--diagram)) 40%,var(--card));background:color-mix(in srgb,var(--ck,var(--diagram)) 14%,var(--card));border-radius:999px;padding:.12rem .55rem;color:var(--ink);cursor:pointer}
+.ent.建造物{--ck:var(--diagram)}.ent.地名{--ck:var(--accent)}.ent.人名{--ck:var(--ent)}.ent.年号{--ck:var(--accent2)}.ent.注記{--ck:var(--muted)}
+.ent .sei{color:var(--ck,var(--accent2));font-size:.66rem;margin-left:.2rem}
+.dtext{font-family:var(--serif);line-height:1.9;white-space:pre-wrap;background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:.7rem .9rem;margin-top:.4rem;color:var(--ink)}
+.recline{display:flex;align-items:center;gap:.6rem;margin-top:1rem;padding:.7rem;border:1px solid var(--line);border-radius:11px;background:var(--bg);cursor:pointer}
+.recline .rt{font-family:var(--serif);color:var(--ink)} .recline .rs{font-size:.72rem;color:var(--muted)}
+.recline .go{margin-left:auto;font-size:.78rem;color:var(--accent)}
+.dlink{display:inline-block;margin-top:.8rem;font-size:.82rem;color:var(--accent)}
+
+/* ---- palette ---- */
+.palette{position:fixed;right:18px;bottom:18px;z-index:80;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-lg);padding:12px 13px;width:236px}
+.pal-h{display:flex;align-items:baseline;gap:.5rem;font-family:var(--serif);font-size:.92rem;color:var(--ink);margin-bottom:.6rem}
+.pal-h span{font-size:.62rem;font-family:var(--sans);color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--card));padding:.08rem .4rem;border-radius:999px}
+.pal-opts{display:flex;flex-direction:column;gap:5px}
+.pal{display:flex;align-items:center;gap:.55rem;padding:.4rem .45rem;border:1px solid transparent;border-radius:10px;background:none;text-align:left;width:100%;cursor:pointer}
+.pal:hover{background:var(--bg2)}
+.pal.on{border-color:color-mix(in srgb,var(--diagram) 55%,var(--line));background:var(--bg2)}
+.pal .sw{display:flex;flex:none;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.pal .sw i{width:13px;height:22px;display:block}
+.pal .pal-name{font-size:.82rem;color:var(--ink);line-height:1.2}
+.pal .pal-en{display:block;font-size:.58rem;color:var(--faint);letter-spacing:.04em}
+.pal .chk{margin-left:auto;color:var(--diagram);font-size:.8rem;opacity:0}.pal.on .chk{opacity:1}
+.pal-min{position:fixed;right:18px;bottom:18px;z-index:80;display:none;align-items:center;gap:.4rem;background:var(--card);border:1px solid var(--line);border-radius:999px;box-shadow:var(--sh-lg);padding:.5rem .8rem;color:var(--ink);font-size:.8rem;cursor:pointer}
+.pal-x{position:absolute;top:8px;right:9px;border:none;background:none;color:var(--faint);font-size:1rem;line-height:1;cursor:pointer}
+
+@media (max-width:820px){
+  .top-in{padding:9px 13px;gap:9px}.brand .txt{display:none}.modetag{display:none}
+  .tl-wrap{padding:12px 13px 2px}.tl-head b{font-size:.98rem}.applied{padding:0 13px}
+  .timeline{height:auto;border:none;background:none;border-radius:0;overflow:visible;cursor:default}
+  .tl-axis,.tl-cent,.tl-dot,.tl-flag,.tl-band,.tl-hint{display:none}
+  .tl-chips{display:flex;gap:.4rem;overflow-x:auto;padding:.2rem 0 .4rem;scrollbar-width:none}
+  .tl-chips::-webkit-scrollbar{display:none}
+  .tlchip{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:.32rem .8rem;font-size:.8rem;white-space:nowrap;color:var(--ink);cursor:pointer}
+  .tlchip.on{background:var(--diagram);border-color:var(--diagram);color:var(--badge-ink)}
+  .shelf-h{padding:0 13px}.rail{padding:4px 13px 12px}.bcard{width:150px}
+  .recview{padding:6px 13px 120px}.rv-head{flex-direction:column}
+  .modal{padding:0;align-items:stretch}
+  .dcard{grid-template-columns:1fr;border-radius:0;max-height:100vh;height:100vh}
+  .dcard .dimg{min-height:42vh;max-height:42vh}
+  .dclose{background:color-mix(in srgb,var(--card) 80%,transparent);box-shadow:var(--sh)}
+  .palette{right:10px;left:10px;bottom:10px;width:auto}
+  .pal-opts{flex-direction:row;overflow-x:auto;gap:8px}
+  .pal{flex:none;flex-direction:column;align-items:center;gap:.3rem;width:74px;padding:.5rem .3rem}
+  .pal .pal-name{font-size:.66rem;text-align:center}.pal .pal-en,.pal .chk{display:none}
+}
+@media (min-width:821px){ .tl-chips{display:none} }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span><span class="serif">京都古典籍</span><span class="txt modetag">書架＋年表で巡る</span></div>
+    <div class="search" id="search"><span class="ic">⌕</span>
+      <input id="q" type="search" placeholder="本文・建造物・資料名・年号で検索" autocomplete="off">
+      <div class="suggest" id="suggest"></div>
+    </div>
+  </div>
+</div>
+
+<div class="tl-wrap">
+  <div class="tl-head"><b>年表で巡る</b><span id="tlsub">点をクリックで資料へ、世紀をクリック／帯をドラッグで年代を絞り込み</span>
+    <button class="clear" id="tlclear">年代の絞り込みを解除 ✕</button></div>
+  <div class="timeline" id="timeline">
+    <div class="tl-band" id="tlband"></div>
+    <div class="tl-hint">ドラッグで範囲選択</div>
+    <div class="tl-axis"></div>
+  </div>
+  <div class="tl-chips" id="tlchips"></div>
+</div>
+
+<div class="applied" id="applied"></div>
+<div class="shelves" id="shelves"></div>
+<section class="recview" id="recview"></section>
+
+<div class="modal" id="modal"><div class="dcard" id="dcard"></div></div>
+
+<div class="palette" id="palette">
+  <button class="pal-x" id="palMin" title="畳む">▾</button>
+  <div class="pal-h">配色 <span>藍鉄ナイト 確定</span></div>
+  <div class="pal-opts" id="palOpts"></div>
+</div>
+<button class="pal-min" id="palOpen">◧ 配色</button>
+
+<script src="data.js"></script>
+<script>
+const A=window.ARCHIVE, $=s=>document.querySelector(s);
+const Y0=1100,Y1=1900;
+// state: q=全文 / era=[start,end] / building=固有表現 / record=資料ID(本ビュー) / open=展開中の棚
+let state={q:"",era:null,building:null,record:null,open:new Set()};
+let navList=[], navIdx=-1; // 詳細モーダルの前後送り対象
+
+function ptColor(pt){
+  if(pt==="平面図_指図"||pt==="絵図") return "var(--diagram)";
+  if(pt==="口絵") return "var(--accent2)";
+  if(pt==="本文") return "var(--accent)";
+  return "var(--ent)";
+}
+const yearOf=p=>(p.year&&p.year.s)||(A.rec(p.record)||{}).year.s;
+
+/* ============ テーマ ============ */
+const THEMES=[
+  {id:"night",jp:"藍鉄ナイト",en:"INDIGO NIGHT",dots:["#0e1422","#46c8f5","#34e0c4"]},
+  {id:"neon",jp:"群青ネオン",en:"ULTRAMARINE NEON",dots:["#0a163a","#19d3ff","#ff5dd0"]},
+  {id:"jade",jp:"墨翠",en:"SUMI JADE",dots:["#13161a","#34d39f","#e0b341"]},
+  {id:"chrome",jp:"白磁クローム",en:"PORCELAIN CHROME",dots:["#eef1f6","#3b5bdb","#0ca678"]},
+  {id:"sepia",jp:"生成りセピア（原案）",en:"PAPER SEPIA",dots:["#f4f1e8","#8a5a2b","#2f6f6a"]},
+];
+function renderPalette(){
+  const cur=document.documentElement.dataset.theme;
+  $("#palOpts").innerHTML=THEMES.map(t=>`<button class="pal ${t.id===cur?'on':''}" data-t="${t.id}">
+    <span class="sw">${t.dots.map(c=>`<i style="background:${c}"></i>`).join("")}</span>
+    <span class="pal-name">${t.jp}<span class="pal-en">${t.en}</span></span><span class="chk">✓</span></button>`).join("");
+  $("#palOpts").querySelectorAll(".pal").forEach(b=> b.onclick=()=>setTheme(b.dataset.t));
+}
+function setTheme(id){ document.documentElement.dataset.theme=id; try{localStorage.setItem("ktx-theme-B",id);}catch(e){} renderPalette(); }
+(function(){ let t="night"; try{t=localStorage.getItem("ktx-theme-B")||"night";}catch(e){} document.documentElement.dataset.theme=t; })();
+$("#palMin").onclick=()=>{ $("#palette").style.display="none"; $("#palOpen").style.display="inline-flex"; };
+$("#palOpen").onclick=()=>{ $("#palette").style.display="block"; $("#palOpen").style.display="none"; };
+
+/* ============ 年表 ============ */
+function buildTimeline(){
+  const tl=$("#timeline");
+  for(let c=12;c<=19;c++){
+    const yr=(c-1)*100, x=(yr+50-Y0)/(Y1-Y0)*100;
+    const el=document.createElement("div"); el.className="tl-cent"; el.style.left=x+"%";
+    el.innerHTML=`<div class="tick"></div><div class="lab">${c}世紀</div>`;
+    el.addEventListener("click",ev=>{ ev.stopPropagation(); const s=(c-1)*100,e=c*100;
+      state.era=(state.era&&state.era[0]===s&&state.era[1]===e)?null:[s,e]; exitRecord(); sync(); });
+    tl.appendChild(el);
+  }
+  A.years.forEach(y=>{
+    const x=(y.s-Y0)/(Y1-Y0)*100, rec=A.rec(y.id);
+    const dot=document.createElement("div"); dot.className="tl-dot "+(rec.kubun==="絵図・地図"?"diff":"");
+    dot.style.left=x+"%"; dot.dataset.id=y.id;
+    dot.addEventListener("click",ev=>{ ev.stopPropagation(); openRecord(y.id); });
+    const flag=document.createElement("div"); flag.className="tl-flag"; flag.style.left=x+"%";
+    flag.textContent=`${y.title}・${y.s}`;
+    tl.appendChild(dot); tl.appendChild(flag);
+  });
+  // ドラッグで範囲選択（10年スナップ）
+  const px2year=clientX=>{ const r=tl.getBoundingClientRect(); const f=Math.min(1,Math.max(0,(clientX-r.left)/r.width)); return Y0+f*(Y1-Y0); };
+  const snap=y=>Math.round(y/10)*10;
+  let dragging=false, anchor=null, moved=false;
+  tl.addEventListener("pointerdown",e=>{ if(e.target.closest(".tl-dot,.tl-cent")) return;
+    dragging=true; moved=false; anchor=snap(px2year(e.clientX)); tl.setPointerCapture(e.pointerId); });
+  tl.addEventListener("pointermove",e=>{ if(!dragging) return; moved=true;
+    const cur=snap(px2year(e.clientX)); const s=Math.min(anchor,cur), en=Math.max(anchor,cur);
+    if(en-s>=10){ state.era=[s,en]; exitRecord(); sync(); } });
+  tl.addEventListener("pointerup",e=>{ if(dragging&&!moved){ state.era=null; exitRecord(); sync(); } dragging=false; });
+  // mobile century chips
+  const chips=$("#tlchips");
+  chips.innerHTML=`<button class="tlchip on" data-c="all">すべての年代</button>`+
+    [12,13,14,15,16,17,18,19].map(c=>`<button class="tlchip" data-c="${c}">${c}世紀</button>`).join("");
+  chips.querySelectorAll(".tlchip").forEach(b=> b.onclick=()=>{
+    chips.querySelectorAll(".tlchip").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+    state.era=b.dataset.c==="all"?null:[(b.dataset.c-1)*100,b.dataset.c*100]; exitRecord(); sync(); });
+}
+function sync(){
+  const band=$("#tlband");
+  if(state.era){ const [s,e]=state.era;
+    band.style.left=(s-Y0)/(Y1-Y0)*100+"%"; band.style.width=(e-s)/(Y1-Y0)*100+"%"; band.style.display="block";
+    $("#tlclear").style.display="inline"; $("#tlsub").textContent=`${s}–${e}年 の資料を含む棚を表示`;
+  } else { band.style.display="none"; $("#tlclear").style.display="none";
+    $("#tlsub").textContent="点をクリックで資料へ、世紀をクリック／帯をドラッグで年代を絞り込み"; }
+  document.querySelectorAll(".tl-dot").forEach(d=>{ const y=A.rec(d.dataset.id).year.s;
+    d.classList.toggle("on", state.era&&y>=state.era[0]&&y<=state.era[1]); });
+  renderApplied(); renderShelves();
+}
+$("#tlclear").onclick=()=>{ state.era=null; document.querySelectorAll(".tlchip").forEach((x,i)=>x.classList.toggle("on",i===0)); sync(); };
+
+/* ============ 適用フィルタ ============ */
+function renderApplied(){
+  const tags=[];
+  if(state.era) tags.push(["era",`${state.era[0]}–${state.era[1]}年`]);
+  if(state.building) tags.push(["building",`建造物: ${state.building}`]);
+  if(state.q.trim()) tags.push(["q",`「${state.q.trim()}」`]);
+  const host=$("#applied");
+  host.innerHTML=(tags.length?`<span class="al">絞り込み中:</span>`:"")+
+    tags.map((t,i)=>`<span class="atag" data-i="${i}">${t[1]}<span class="x">✕</span></span>`).join("");
+  host.querySelectorAll(".atag").forEach((el,i)=> el.onclick=()=>{ const k=tags[i][0];
+    if(k==="q"){state.q="";$("#q").value="";} else if(k==="building"){state.building=null;}
+    else if(k==="era"){state.era=null; document.querySelectorAll(".tlchip").forEach((x,j)=>x.classList.toggle("on",j===0));}
+    sync(); });
+}
+
+/* ============ 棚 ============ */
+function pageMatch(p){
+  const q=state.q.trim();
+  if(q && !(p.text.includes(q)||p.sum.includes(q)||p.ents.some(e=>e.t.includes(q))||(A.rec(p.record)||{}).title.includes(q))) return false;
+  if(state.building && !(p.ents.some(e=>e.t.includes(state.building))||p.text.includes(state.building))) return false;
+  if(state.era){ const y=yearOf(p); if(!(y>=state.era[0]&&y<=state.era[1])) return false; }
+  return true;
+}
+function card(p){
+  return `<figure class="bcard" data-id="${p.id}" tabindex="0">
+    <div class="imgwrap" data-glyph="${p.glyph}"><img src="${p.thumb}" loading="lazy" alt="" onerror="this.classList.add('failed')"></div>
+    <figcaption class="bc-body">
+      <span class="bc-type" style="background:${ptColor(p.ptype)}">${p.ptype}</span>
+      <div class="bc-sum">${p.sum}</div>
+      <div class="bc-meta"><span>${(A.rec(p.record)||{}).title}</span>${p.year?`<span class="yr">${p.year.s}</span>`:""}</div>
+    </figcaption></figure>`;
+}
+function renderShelves(){
+  if(state.record){ return; } // 本ビュー表示中は棚を描かない
+  const host=$("#shelves"); host.style.display=""; $("#recview").classList.remove("show"); host.innerHTML="";
+  let anyHit=false;
+  A.shelves.forEach(sh=>{
+    const pages=sh.pageIds.map(id=>A.pages.find(p=>p.id===id)).filter(Boolean).filter(pageMatch);
+    if(pages.length) anyHit=true;
+    const isOpen=state.open.has(sh.id);
+    const div=document.createElement("section"); div.className="shelf"+(pages.length===0?" dim":"")+(isOpen?" open":"");
+    div.innerHTML=`<div class="shelf-h"><b>${sh.title}</b><span class="n">${pages.length} 点</span>
+        ${pages.length>3?`<button class="more" data-sh="${sh.id}">${isOpen?"折りたたむ ▲":"すべて見る ›"}</button>`:""}</div>
+      <div class="rail">${pages.map(card).join("")||`<div class="endcap" style="cursor:default">該当なし</div>`}
+        ${pages.length&&!isOpen?`<div class="endcap" data-sh="${sh.id}">この棚を<br>すべて見る ›</div>`:""}</div>`;
+    host.appendChild(div);
+  });
+  host.querySelectorAll(".bcard").forEach(c=>{ c.onclick=()=>openPageInShelves(c.dataset.id);
+    c.onkeydown=e=>{ if(e.key==="Enter") openPageInShelves(c.dataset.id); }; });
+  host.querySelectorAll("[data-sh]").forEach(b=> b.onclick=()=>{ const id=b.dataset.sh;
+    state.open.has(id)?state.open.delete(id):state.open.add(id); renderShelves(); });
+  let emp=$("#emptyMsg"); if(emp) emp.remove();
+  if(!anyHit){ const e=document.createElement("div"); e.id="emptyMsg"; e.className="empty";
+    e.innerHTML="該当する見開きがありません。絞り込みを解除してください。"; host.appendChild(e); }
+}
+// 棚に出ている見開き集合（モーダル前後送り用）
+function visiblePages(){
+  const seen=new Set(), list=[];
+  A.shelves.forEach(sh=>sh.pageIds.forEach(id=>{ const p=A.pages.find(x=>x.id===id);
+    if(p&&pageMatch(p)&&!seen.has(id)){ seen.add(id); list.push(p); } }));
+  return list;
+}
+function openPageInShelves(id){ navList=visiblePages(); navIdx=navList.findIndex(p=>p.id===id); openModal(id); }
+
+/* ============ 資料ビュー（本） ============ */
+function openRecord(rid){
+  state.record=rid; $("#shelves").style.display="none"; $("#applied").innerHTML="";
+  const rec=A.rec(rid), pages=A.pagesOf(rid);
+  const rv=$("#recview"); rv.classList.add("show");
+  rv.innerHTML=`<button class="rv-back" id="rvBack">‹ 書架へ戻る</button>
+    <div class="rv-head">
+      <div class="rv-cover imgwrap" data-glyph="${(pages[0]||{}).glyph||rec.title[0]}"><img src="${(pages[0]||{}).thumb||''}" alt="" onerror="this.classList.add('failed')"></div>
+      <div><span class="rv-badge" style="background:var(--accent)">${rec.kubun}</span>
+        <h2>${rec.title}<span class="rv-yomi">${rec.yomi}</span></h2>
+        <div class="rv-meta">${rec.author}　/　NDC ${rec.ndc}　/　請求 ${rec.call}　/　刊年 ${rec.year.w}（${rec.year.s}）　/　全${rec.images.toLocaleString()}画像</div>
+        <p class="rv-blurb">${rec.blurb}</p></div>
+    </div>
+    <div class="sect-h" style="padding:0 0 .4rem">構造化済みの見開き ${pages.length} 点</div>
+    <div class="rv-grid">${pages.map(card).join("")}</div>`;
+  rv.querySelector("#rvBack").onclick=exitRecord;
+  rv.querySelectorAll(".bcard").forEach(c=> c.onclick=()=>{ navList=pages; navIdx=pages.findIndex(p=>p.id===c.dataset.id); openModal(c.dataset.id); });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function exitRecord(){ if(!state.record) return; state.record=null; $("#recview").classList.remove("show"); $("#shelves").style.display=""; }
+
+/* ============ 詳細モーダル ============ */
+function detailHTML(p){
+  const rec=A.rec(p.record)||{};
+  const ents=p.ents.map(e=>`<span class="ent ${e.kind}" data-t="${e.t}" data-k="${e.kind}">${e.t}</span>`).join("");
+  const yr=p.year?`<span>${p.year.w}・${p.year.s}</span>`:`<span>${rec.year.w}・${rec.year.s}</span>`;
+  const pos=navList.length?`<span class="dpos">${navIdx+1} / ${navList.length}</span>`:"";
+  return `<button class="dclose" id="dclose">×</button>
+    <div class="dimg"><div class="imgwrap" data-glyph="${p.glyph}"><img src="${p.large}" alt="" onerror="this.classList.add('failed')"></div>
+      <div class="dnav"><button id="dprev" title="前（←）">‹</button><button id="dnext" title="次（→）">›</button></div>${pos}</div>
+    <div class="dbody">
+      <div class="dmeta"><span class="ptype" style="background:${ptColor(p.ptype)}">${p.ptype}</span>
+        <span class="src">${p.src}</span>${yr}${p.conf?`<span>確信度 ${p.conf}%</span>`:""}</div>
+      <h2 class="dtitle">${p.sum.split("。")[0]}</h2>
+      <p class="dsum">${p.sum}</p>
+      <div class="sect-h">注記・固有表現（クリックで絞り込み）</div><div class="ents">${ents}</div>
+      <div class="sect-h">翻刻テキスト</div><div class="dtext">${p.text}</div>
+      <div class="recline" id="dRec"><div><div class="rt serif">${rec.title}</div>
+        <div class="rs">${rec.kubun}・NDC ${rec.ndc}・全${(rec.images||0).toLocaleString()}画像</div></div>
+        <span class="go">この資料を見る ›</span></div>
+      <a class="dlink" href="${p.large}" target="_blank">原資料を高精細で開く ↗</a></div>`;
+}
+function openModal(id){
+  const p=A.pages.find(x=>x.id===id); if(!p) return;
+  $("#dcard").innerHTML=detailHTML(p); $("#modal").classList.add("show");
+  $("#dclose").onclick=closeModal;
+  $("#dprev").onclick=()=>step(-1); $("#dnext").onclick=()=>step(1);
+  $("#dRec").onclick=()=>{ closeModal(); openRecord(p.record); };
+  $("#dcard").querySelectorAll(".ent").forEach(el=> el.onclick=()=>{
+    const k=el.dataset.k; if(k==="建造物"||k==="地名"||k==="注記"){ state.building=el.dataset.t; state.q=""; $("#q").value=""; closeModal(); exitRecord(); sync();
+      window.scrollTo({top:0,behavior:"smooth"}); } });
+}
+function step(d){ if(!navList.length) return; navIdx=(navIdx+d+navList.length)%navList.length; openModal(navList[navIdx].id); }
+function closeModal(){ $("#modal").classList.remove("show"); }
+$("#modal").onclick=e=>{ if(e.target.id==="modal") closeModal(); };
+document.addEventListener("keydown",e=>{
+  if($("#modal").classList.contains("show")){ if(e.key==="Escape") closeModal(); if(e.key==="ArrowLeft") step(-1); if(e.key==="ArrowRight") step(1); return; }
+  if(e.key==="/"&&document.activeElement!==$("#q")){ e.preventDefault(); $("#q").focus(); }
+});
+
+/* ============ 検索サジェスト（コマンドバー） ============ */
+function buildSuggest(q){
+  q=q.trim(); const groups=[];
+  if(q) groups.push({h:`全文・翻刻を検索`,items:[{label:`本文に「${q}」を含む見開き`,tag:"全文",col:"var(--accent)",act:()=>{state.q=q;state.building=null;}}]});
+  const bld=A.buildings.filter(b=>!q||b.includes(q)).slice(0,6)
+    .map(b=>({label:b,tag:"建造物",col:"var(--diagram)",act:()=>{state.building=b;state.q="";}}));
+  const recs=A.records.filter(r=>!q||r.title.includes(q)||r.yomi.includes(q)).slice(0,4)
+    .map(r=>({label:r.title,tag:r.kubun,col:"var(--accent2)",n:`${r.images.toLocaleString()}画像`,act:()=>{openRecord(r.id);return"record";}}));
+  const yrs=A.years.filter(y=>!q||y.w.includes(q)||String(y.s).includes(q)).slice(0,4)
+    .map(y=>({label:`${y.w}・${y.title}`,tag:String(y.s),col:"var(--ent)",act:()=>{const s=Math.floor(y.s/100)*100;state.era=[s,s+100];}}));
+  if(bld.length) groups.push({h:"建造物",items:bld});
+  if(recs.length) groups.push({h:"資料",items:recs});
+  if(yrs.length) groups.push({h:"年代",items:yrs});
+  return groups;
+}
+function renderSuggest(q){
+  const groups=buildSuggest(q), sug=$("#suggest");
+  sug.innerHTML=groups.map(g=>`<div class="sg-h">${g.h}</div>`+g.items.map((it,i)=>
+    `<div class="sg-i"><span class="tag" style="background:${it.col}">${it.tag}</span>${it.label}${it.n?`<span class="n">${it.n}</span>`:""}</div>`).join("")).join("");
+  const flat=groups.flatMap(g=>g.items);
+  sug.querySelectorAll(".sg-i").forEach((el,i)=> el.onclick=()=>{ const r=flat[i].act(); sug.classList.remove("show");
+    $("#q").value=state.q; if(r!=="record"){ exitRecord(); sync(); window.scrollTo({top:0,behavior:"smooth"}); } });
+  sug.classList.add("show");
+}
+const qEl=$("#q"), sEl=$("#search");
+qEl.addEventListener("focus",()=>renderSuggest(qEl.value));
+qEl.addEventListener("input",()=>{ state.q=qEl.value; renderSuggest(qEl.value); if(!state.record) sync(); });
+qEl.addEventListener("keydown",e=>{ if(e.key==="Enter"){ state.q=qEl.value; state.building=null; exitRecord(); $("#suggest").classList.remove("show"); sync(); }
+  if(e.key==="Escape"){ $("#suggest").classList.remove("show"); } });
+document.addEventListener("click",e=>{ if(!sEl.contains(e.target)) $("#suggest").classList.remove("show"); });
+
+renderPalette(); buildTimeline(); sync();
+</script>
+</body>
+</html>

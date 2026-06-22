@@ -1,0 +1,34 @@
+/* Hiragino は macOS 標準の和文フォント。ローカル参照で宣言し、未導入環境では
+   --serif / --sans のフォールバックスタックが描画される。別ファミリには置換しない。 */
+@font-face{font-family:"Hiragino Mincho ProN";src:local("Hiragino Mincho ProN"),local("HiraMinProN-W3"),local("HiraMinProN-W6");font-weight:300 700;font-style:normal}
+@font-face{font-family:"Hiragino Kaku Gothic ProN";src:local("Hiragino Kaku Gothic ProN"),local("HiraKakuProN-W3"),local("HiraKakuProN-W6");font-weight:300 700;font-style:normal}
+:root{
+  --bg:#f4f1e8; --bg2:#efeadd; --card:#fffdf8; --ink:#2b2622; --ink2:#4a423a;
+  --muted:#7a7165; --faint:#a89e8d; --accent:#8a5a2b; --accent2:#a36d36;
+  --diagram:#2f6f6a; --ent:#5a3a6a; --line:#e2dccf; --line2:#ece6d8; --mark:#ffe1a8;
+  --serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif; /* @kind font */
+  --sans:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif; /* @kind font */
+  --r:14px; --r-sm:9px;
+  --sh:0 1px 2px rgba(43,38,34,.05),0 6px 18px rgba(43,38,34,.06);
+  --sh-lg:0 2px 6px rgba(43,38,34,.08),0 20px 48px rgba(43,38,34,.14);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--mark)}
+button{font-family:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent);text-decoration:none}
+input{font-family:inherit}
+mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 .08em}
+.serif{font-family:var(--serif)}
+/* book-page fallback when remote images fail to load */
+.imgwrap{position:relative;background:
+  repeating-linear-gradient(90deg,#efe7d6 0 1px,transparent 1px 14px),
+  linear-gradient(150deg,#f3ecdb,#e7dcc4);overflow:hidden}
+.imgwrap::after{content:attr(data-glyph);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:clamp(20px,7vw,42px);color:#c9b893;letter-spacing:.3em;opacity:.5}
+.imgwrap img{position:relative;display:block;width:100%;height:100%;object-fit:cover;z-index:1}
+.imgwrap img.failed{display:none}
+.thin-scroll::-webkit-scrollbar{width:9px;height:9px}
+.thin-scroll::-webkit-scrollbar-thumb{background:#d8d0bf;border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+.thin-scroll::-webkit-scrollbar-track{background:transparent}
