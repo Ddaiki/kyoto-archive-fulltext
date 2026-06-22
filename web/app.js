@@ -21,7 +21,9 @@ const $ = (id) => document.getElementById(id);
 const els = {};
 ["q", "count", "pgCount", "facets", "onlyTx", "typeFacets", "onlyDiagram",
  "buildingFacets", "yearFacets", "activeFilters", "catFilters", "pageFilters",
- "catResults", "pageResults", "lightbox", "lbImg", "lbClose"].forEach((k) => els[k] = $(k));
+ "catResults", "pageResults", "lightbox", "lbImg", "lbClose",
+ "lbPrev", "lbNext", "lbCap"].forEach((k) => els[k] = $(k));
+let lbList = [], lbIdx = 0;
 
 init();
 
@@ -50,8 +52,15 @@ async function init() {
       renderPages();
     });
   els.lbClose.addEventListener("click", closeLightbox);
+  els.lbPrev.addEventListener("click", (e) => { e.stopPropagation(); lbStep(-1); });
+  els.lbNext.addEventListener("click", (e) => { e.stopPropagation(); lbStep(1); });
   els.lightbox.addEventListener("click", (e) => { if (e.target === els.lightbox) closeLightbox(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+  document.addEventListener("keydown", (e) => {
+    if (els.lightbox.classList.contains("hidden")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") lbStep(-1);
+    else if (e.key === "ArrowRight") lbStep(1);
+  });
 
   handleHash();
   window.addEventListener("hashchange", handleHash);
@@ -178,10 +187,14 @@ function renderPageFacets() {
     `<button class="chip" data-b="${esc(t)}">${esc(t)} <span>${n}</span></button>`).join("") || `<span class="muted-note">（OCR処理が進むと表示）</span>`;
   for (const b of els.buildingFacets.querySelectorAll(".chip"))
     b.addEventListener("click", () => selectSingle("building", b.dataset.b, b, els.buildingFacets));
-  // 年号（上位40）
-  const years = countBy((p) => entVals(p, "年号")).slice(0, 40);
-  els.yearFacets.innerHTML = years.map(([t, n]) =>
-    `<button class="chip" data-y="${esc(t)}">${esc(t)} <span>${n}</span></button>`).join("") || `<span class="muted-note">（OCR処理が進むと表示）</span>`;
+  // 年号（西暦に変換できるものは年代順、できないものは後ろに）
+  const years = countBy((p) => entVals(p, "年号"))
+    .map(([t, n]) => [t, n, waToSeireki(t)])
+    .sort((a, b) => (a[2] || 99999) - (b[2] || 99999) || b[1] - a[1])
+    .slice(0, 50);
+  els.yearFacets.innerHTML = years.map(([t, n, sei]) =>
+    `<button class="chip" data-y="${esc(t)}">${esc(t)}${sei ? `<span class="sei">${sei}</span>` : ""} <span>${n}</span></button>`).join("")
+    || `<span class="muted-note">（OCR処理が進むと表示）</span>`;
   for (const b of els.yearFacets.querySelectorAll(".chip"))
     b.addEventListener("click", () => selectSingle("year", b.dataset.y, b, els.yearFacets));
 }
@@ -274,7 +287,9 @@ function entityLines(p) {
 }
 function entChip(val, kind) {
   const k = kind === "年号" ? "year" : "building";
-  return `<button class="ent ${kind}" data-ent="${esc(val)}" data-kind="${k}">${esc(val)}</button>`;
+  const sei = kind === "年号" ? waToSeireki(val) : null;
+  const tail = sei ? `<span class="sei">${sei}</span>` : "";
+  return `<button class="ent ${kind}" data-ent="${esc(val)}" data-kind="${k}">${esc(val)}${tail}</button>`;
 }
 function galleryCell(p) {
   const cap = p.labels && p.labels.length ? p.labels.slice(0, 3).join("・") : (p.summary || "").slice(0, 24);
@@ -284,8 +299,11 @@ function galleryCell(p) {
   </figure>`;
 }
 function wireImages(root) {
-  for (const img of root.querySelectorAll("img[data-full]"))
-    img.addEventListener("click", () => openLightbox(img.dataset.full));
+  const imgs = [...root.querySelectorAll("img[data-full]")];
+  imgs.forEach((img, i) => img.addEventListener("click", () => {
+    lbList = imgs.map((x) => ({ full: x.dataset.full, cap: x.alt || "" }));
+    openLightbox(i);
+  }));
   for (const b of root.querySelectorAll(".ent[data-ent]"))
     b.addEventListener("click", () => {
       if (state.tab !== "pages") switchTab("pages");
@@ -308,6 +326,60 @@ function handleHash() {
 }
 
 // ---- ユーティリティ ---------------------------------------------
+// 和暦→西暦（主要元号の改元年=その元号の元年の西暦）。建立年代の手がかり用の概算。
+const ERA_START = {
+  延暦: 782, 大同: 806, 弘仁: 810, 天長: 824, 承和: 834, 嘉祥: 848, 仁寿: 851, 天安: 857,
+  貞観: 859, 元慶: 877, 仁和: 885, 寛平: 889, 昌泰: 898, 延喜: 901, 延長: 923, 承平: 931,
+  天慶: 938, 天暦: 947, 天徳: 957, 応和: 961, 康保: 964, 安和: 968, 天禄: 970, 天延: 973,
+  貞元: 976, 天元: 978, 永観: 983, 寛和: 985, 永延: 987, 永祚: 989, 正暦: 990, 長徳: 995,
+  長保: 999, 寛弘: 1004, 長和: 1013, 寛仁: 1017, 治安: 1021, 万寿: 1024, 長元: 1028,
+  長久: 1040, 寛徳: 1044, 永承: 1046, 天喜: 1053, 康平: 1058, 治暦: 1065, 延久: 1069,
+  承保: 1074, 承暦: 1077, 永保: 1081, 応徳: 1084, 寛治: 1087, 嘉保: 1095, 永長: 1097,
+  承徳: 1097, 康和: 1099, 長治: 1104, 嘉承: 1106, 天仁: 1108, 天永: 1110, 永久: 1113,
+  元永: 1118, 保安: 1120, 天治: 1124, 大治: 1126, 天承: 1131, 長承: 1132, 保延: 1135,
+  永治: 1141, 康治: 1142, 天養: 1144, 久安: 1145, 仁平: 1151, 久寿: 1154, 保元: 1156,
+  平治: 1159, 永暦: 1160, 応保: 1161, 長寛: 1163, 永万: 1165, 仁安: 1166, 嘉応: 1169,
+  承安: 1171, 安元: 1175, 治承: 1177, 養和: 1181, 寿永: 1182, 元暦: 1184, 文治: 1185,
+  建久: 1190, 正治: 1199, 建仁: 1201, 元久: 1204, 建永: 1206, 承元: 1207, 建暦: 1211,
+  建保: 1213, 承久: 1219, 貞応: 1222, 元仁: 1224, 嘉禄: 1225, 安貞: 1227, 寛喜: 1229,
+  貞永: 1232, 天福: 1233, 文暦: 1234, 嘉禎: 1235, 暦仁: 1238, 延応: 1239, 仁治: 1240,
+  寛元: 1243, 宝治: 1247, 建長: 1249, 康元: 1256, 正嘉: 1257, 正元: 1259, 文応: 1260,
+  弘長: 1261, 文永: 1264, 建治: 1275, 弘安: 1278, 正応: 1288, 永仁: 1293, 正安: 1299,
+  乾元: 1302, 嘉元: 1303, 徳治: 1306, 延慶: 1308, 応長: 1311, 正和: 1312, 文保: 1317,
+  元応: 1319, 元亨: 1321, 正中: 1324, 嘉暦: 1326, 元徳: 1329, 元弘: 1331, 建武: 1334,
+  延元: 1336, 興国: 1340, 正平: 1347, 建徳: 1370, 文中: 1372, 天授: 1375, 弘和: 1381,
+  元中: 1384, 暦応: 1338, 康永: 1342, 貞和: 1345, 観応: 1350, 文和: 1352, 延文: 1356,
+  康安: 1361, 貞治: 1362, 応安: 1368, 永和: 1375, 康暦: 1379, 永徳: 1381, 至徳: 1384,
+  嘉慶: 1387, 康応: 1389, 明徳: 1390, 応永: 1394, 正長: 1428, 永享: 1429, 嘉吉: 1441,
+  文安: 1444, 宝徳: 1449, 享徳: 1452, 康正: 1455, 長禄: 1457, 寛正: 1460, 文正: 1466,
+  応仁: 1467, 文明: 1469, 長享: 1487, 延徳: 1489, 明応: 1492, 文亀: 1501, 永正: 1504,
+  大永: 1521, 享禄: 1528, 天文: 1532, 弘治: 1555, 永禄: 1558, 元亀: 1570, 天正: 1573,
+  文禄: 1592, 慶長: 1596, 元和: 1615, 寛永: 1624, 正保: 1644, 慶安: 1648, 承応: 1652,
+  明暦: 1655, 万治: 1658, 寛文: 1661, 延宝: 1673, 天和: 1681, 貞享: 1684, 元禄: 1688,
+  宝永: 1704, 正徳: 1711, 享保: 1716, 元文: 1736, 寛保: 1741, 延享: 1744, 寛延: 1748,
+  宝暦: 1751, 明和: 1764, 安永: 1772, 天明: 1781, 寛政: 1789, 享和: 1801, 文化: 1804,
+  文政: 1818, 天保: 1830, 弘化: 1844, 嘉永: 1848, 安政: 1854, 万延: 1860, 文久: 1861,
+  元治: 1864, 慶応: 1865, 明治: 1868,
+};
+const KNUM = { 元: 1, 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
+function kanjiYear(s) {
+  if (/^\d+$/.test(s)) return +s;
+  if (s === "元") return 1;
+  let n = 0;
+  if (s.includes("十")) {
+    const [a, b] = s.split("十");
+    n = (a ? (KNUM[a] || 1) : 1) * 10 + (b ? (KNUM[b] || 0) : 0);
+  } else { for (const c of s) n = n * 10 + (KNUM[c] || 0); }
+  return n || null;
+}
+function waToSeireki(yango) {
+  const m = (yango || "").match(/([一-龠]{2,4})\s*([元〇0-9一二三四五六七八九十]+)\s*年/);
+  if (!m) return null;
+  const start = ERA_START[m[1]];
+  const yr = kanjiYear(m[2]);
+  return (start && yr) ? start + yr - 1 : null;
+}
+
 function detailUrl(pkey) { return `https://www.archives.kyoto.jp/websearchpe/detail?cls=152_old_books_catalog&pkey=${pkey}`; }
 function mediaUrl(pkey, media) { return `https://www.archives.kyoto.jp/websearchpe/mediaDetail?cls=152_old_books_catalog&pkey=${pkey}&lCls=150_media_old_books&lPkey=${media}&detaillnkIdx=1`; }
 function termsOf(q) { q = q.trim(); return q ? q.split(/\s+/).filter(Boolean) : []; }
@@ -318,7 +390,19 @@ function highlight(text, terms) {
   return html;
 }
 function toggleSet(s, v) { s.has(v) ? s.delete(v) : s.add(v); }
-function openLightbox(url) { els.lbImg.src = url; els.lightbox.classList.remove("hidden"); }
+function openLightbox(idx) {
+  lbIdx = idx; showLb(); els.lightbox.classList.remove("hidden");
+}
+function showLb() {
+  const item = lbList[lbIdx];
+  if (!item) return;
+  els.lbImg.src = item.full;
+  els.lbCap.textContent = `${item.cap}　(${lbIdx + 1}/${lbList.length})`;
+  const multi = lbList.length > 1;
+  els.lbPrev.style.display = multi ? "" : "none";
+  els.lbNext.style.display = multi ? "" : "none";
+}
+function lbStep(d) { if (!lbList.length) return; lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLb(); }
 function closeLightbox() { els.lightbox.classList.add("hidden"); els.lbImg.src = ""; }
 function esc(s) { return (s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }

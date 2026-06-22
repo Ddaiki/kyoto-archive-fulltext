@@ -70,6 +70,9 @@ main { max-width: 1040px; margin: 0 auto; padding: 1rem 1.2rem 2rem; }
 .ent.建造物 { border-color: #cfe0de; }
 .ent.年号 { border-color: #e3d3b6; background: #fbf4e6; }
 .ent:hover { background: #f1ece1; }
+.sei { font-size: .66rem; color: var(--diagram); margin-left: .25rem; font-family: sans-serif; }
+.ent.年号 .sei { color: #9a6a1a; }
+.chip .sei { color: var(--accent); }
 mark { background: #ffe1a8; padding: 0 .05em; }
 .empty-msg { color: var(--muted); text-align: center; padding: 1.2rem; }
 
@@ -86,5 +89,9 @@ footer a { color: var(--accent); }
 
 .lightbox { position: fixed; inset: 0; background: rgba(20,16,12,.85); display: flex; align-items: center; justify-content: center; z-index: 50; }
 .lightbox img { max-width: 94vw; max-height: 92vh; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
-.lbClose { position: fixed; top: 1rem; right: 1.2rem; font-size: 2rem; color: #fff; background: none; border: none; cursor: pointer; line-height: 1; }
+.lbClose { position: fixed; top: 1rem; right: 1.2rem; font-size: 2rem; color: #fff; background: none; border: none; cursor: pointer; line-height: 1; z-index: 52; }
+.lbNav { position: fixed; top: 50%; transform: translateY(-50%); font-size: 2.6rem; color: #fff; background: rgba(0,0,0,.25); border: none; cursor: pointer; padding: .3rem .7rem; border-radius: 8px; z-index: 52; }
+.lbPrev { left: 1rem; } .lbNext { right: 1rem; }
+.lbNav:hover { background: rgba(0,0,0,.5); }
+.lbCap { position: fixed; bottom: 1rem; left: 0; right: 0; text-align: center; color: #f3ead8; font-family: sans-serif; font-size: .82rem; }
 @media (max-width: 560px) { .page { grid-template-columns: 1fr; } .page img { width: 150px; } .flabel { min-width: 100%; } }

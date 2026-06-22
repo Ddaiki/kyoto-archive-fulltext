@@ -152,12 +152,15 @@ def transcribe(media_pkey: str, *, catalog_pkey: str = "0000000402",
     data, in_tok, out_tok = _call(client, img, model)
     cost = _cost(model, in_tok, out_tok)
 
+    # エスカレーションは費用対効果の高いケースに限定。
+    # 検証で本文/目次は O でも確信度が改善しなかったため、原則として図面（注記の
+    # 読み取りに解像度が効く）と、極端に低確信のページのみ O へ昇格する。
     is_diagram = data["page_type"] in DIAGRAM_TYPES
-    needs_better = (
-        (data["transcription"].strip() or data["labels"])
-        and (data["confidence"] < 0.65
-             or data["illegible_count"] >= 15
-             or (is_diagram and data["confidence"] < 0.90))
+    has_content = data["transcription"].strip() or data["labels"]
+    needs_better = has_content and (
+        (is_diagram and data["confidence"] < 0.90)
+        or data["confidence"] < 0.45
+        or data["illegible_count"] >= 20
     )
     if escalate and needs_better:
         size = "O"
