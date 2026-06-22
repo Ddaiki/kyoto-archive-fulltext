@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093657",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "右禪室出自姫霍之家入于仏陀之道\n宿縁是芳染法衣於菩提樹之秋露信\n心既清陛形珠於天台山之暁月是以\n一使詣中堂之浄莚専叩大聖之信鼓以\n驚梵釈四王之高聴以仰住持三宝之\n諸尊仍諷誦祈修如件数白\n寛喜二年八月日仏子天台慶主大僧正法印大和尚位良快敬白\n敬白\n請諷誦事\n三宝衆僧御布施麻布三百端\n一右禅室早謝累堂槐宰之種忽落一双\n華髪之餝受木刃於大乗之霊域鑑蒲\n牢於無動之仁祠器宇畜村遂彰禪林\n一期埜之徳秘為訪法定伝仏家棟梁之\n名仍諷誦所修如件敬自\n寛喜二年八月日仏子天台座主大僧正法印大和尚位良敬白\n一御所吉水殿巌殿庇御簾上之\n一御車寝殿中間寄之\n御簾役",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

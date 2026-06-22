@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093631",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "建仁四年廿\n五月十五日勤禁\n同年号改元\n元久元年甲子\n裏最勝講講\n二十\n城\n同日叙法印\n同二年乙丑\n建永元年丙寅\n香院検校\n元久三年四月\n七日年号改元\n廿五日補日吉社権別当\n十一月補妙\n承元元年丁卯\n十\n第六十\n宜下\n卅一\n九代\n同二年戊辰五月廿日探題\n四度戒十二応\n座主奉状詞曰稟博陞之\n図輔辞退替\n貴種為抜群之俊才所達者一円之教○所一\n経者三会之講匠也云云\n十月十六日随前座主慈圓大僧正受濯頂\n十一月霜月会精義\n同三年巳巳三月十六日為東一条院入内御\n祈修不動法\n同四年庚午\n建暦元年辛未\n同二年壬申\n建保元年癸酉\n建保元年癸酉\n同二年甲戌\n名詞\n鬼一\n同三年乙亥",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

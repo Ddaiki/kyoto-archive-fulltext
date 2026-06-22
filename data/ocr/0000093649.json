@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093649",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "華頂要略\n門主伝第五\n無動寺大僧正法印大和尚位\n或号後吉\n水和尚\n諱慈源\n光明峯寺關白道家公六男母准三后従一\n異本云輪子○西苑寺一\n佐藤原綸子\n太政大臣公経公女\n良快大僧正入室慈賢僧正受法灌須弟子\n道覚親王受法弟子\n承久二年庚辰月日誕生",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

@@ -25,8 +25,8 @@ from pathlib import Path
 from ..fetch import images, record
 from .transcribe import OCR_DIR, SCHEMA_VERSION
 
-NDL_DIR = Path(os.environ.get("NDLKOTENOCR_DIR", "/tmp/ndlkotenocr-lite"))
-NDL_PY = os.environ.get("NDLKOTENOCR_PYTHON", "/tmp/ndlocr-venv/bin/python")
+NDL_DIR = Path(os.environ.get("NDLKOTENOCR_DIR", str(Path.home() / "tools/ndlkotenocr-lite")))
+NDL_PY = os.environ.get("NDLKOTENOCR_PYTHON", str(Path.home() / "tools/ndlocr-venv/bin/python"))
 EMPTY_ENT = {"建造物": [], "人名": [], "地名": [], "年号": []}
 
 

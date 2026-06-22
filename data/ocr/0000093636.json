@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093636",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "一被止之有理者被優之聖新已無私衆\n一徒蓋服膺此上弥凝興隆仏法之思可\n同新天長地久御願之由宜令下知者\n天気如此巻之謹状\n七月廿二日左衛門権佐藤原信蔵\n一進上天台座主僧正御房政\n八月鞍馬寺検校官符云\n鞍馬寺検校蔵\n一件寺者叡山宝幢院末寺也於検校載\n者以西塔住侶所補来也而忠尋座主\n一依有由緒任彼職以来為門跡相承之\n所蔵偏令執務一寺殊賜官符数代之\n間更無依達者\n中略\n寛喜元年八月十一日修理東大寺大仏長官左大夫兼丹波守\n小槻宿祢判奉\n十一月廿九日補法務",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

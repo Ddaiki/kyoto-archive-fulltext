@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093660",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "受青蓮院門跡\n八月十七日補三昧院検校\n●譲於良快僧正一\n同廿一日為積善寺極楽寺等別当\n同廿三日為常寿院別当\n文暦元年甲午\n十一月五日\n年号改元\n十月十二日補法\n性寺座主死動寺検校等同月妙香院相\n承\n師主\n従也\n謀也\n九月十九日\n嘉禎元年乙未\n年号改元\n成寺検校\n七月十六日補法\n十二月十八日申寄阿闍梨三口於定心坊ニ\n八條禅尼譲\n同月日補越前気北官社務一\n也自是以来\n求被附\n門跡\n同二年丙申六月廿九日補法務\n七月八日申法勢変賀\n十二月廿日随慈賢僧正受准頂\n同三年丁酉正月十二日善法寺室清息六家\n八幡\n芳宮清\n記",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

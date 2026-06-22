@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093645",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "十郎同\n会門前唄師\n覚遍法印\n成原法印\n成原法印\n御創手\n良円法印\n一覚俊法印\n一覚俊法印\n役人\n本覚院法印禅林寺\n法印勧修寺法印\n御子息三人雖\n可有御勤仕興福寺別当天台座主次第一\n依有御煩本覚院勧修寺両法印為御\n猶子御勤仕云云天台座主興福寺引当令\n蒙一座宣旨給之間御着座両方座上\n也云云\n禅定殿\n東鑑曰嘉禎四年七月十七日准后\n下北政\n所於法性寺殿出家御戒師飯室僧正良\n状\n同年七月二十五日戊戌天晴法特寺禅定\n殿下御出家後始御参内前殿四人坊一\n官四人緇素後車各一軸云云\n二",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

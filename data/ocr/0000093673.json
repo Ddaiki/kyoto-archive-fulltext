@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093673",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "如此仍言上如件定嗣恐惶頓首謹言\n九月廿三日左中辨定嗣奉\n進上天台座主僧正御房政所\n検注言上\n大屋御庄内鳳至院仁治貳年作不検\n見数収目録事\n本作田四十一町一段六\n合\n不作七十九段四本不七丁二段七今丁\n六段七\n河成七丁六段二建永二年検注役\n御裁許定\n江成三段五同御免\n地減三段一同御免\n本作二十四丁五段二\n見作田二十四丁十九段\n除田八十七段五\nケヤ四段二\n神田一丁五段五\n天満宮三段日吉宮二段平田宮一段\n八幡宮一段稲寄宮二段大般若田六段五\n寺田九段\n坂敬寺五段給福寺三段普光寺一段\n一人給田六丁三段",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

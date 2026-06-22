@@ -82,6 +82,27 @@ python -m src.db.build_web 0000000402
 各ステップは取得済みを再利用（idempotent）。OCR 結果は `data/ocr/`、
 概算費用は実行ログと `docs/ocr_cost.md` に記録する。
 
+### 無料OCR（NDL古典籍OCR-Lite, 課金なし）
+
+Claude API を使わずローカルCPUで翻刻する手段（`docs/free_ocr.md` 参照）。一度だけ準備:
+
+```bash
+mkdir -p ~/tools && cd ~/tools
+git clone https://github.com/ndl-lab/ndlkotenocr-lite
+python3 -m venv ndlocr-venv
+ndlocr-venv/bin/pip install onnxruntime pillow numpy lxml networkx pyparsing \
+  ordered-set protobuf pyyaml tqdm reportlab pypdfium2 dill
+```
+
+実行（既定で `~/tools/ndlkotenocr-lite` を参照。`NDLKOTENOCR_DIR` で変更可）:
+
+```bash
+python -m src.ocr.free_ocr 0000000402 400 50 3   # orders 400-449 を無料OCR（$0）
+```
+
+無料OCRは本文テキストのみ（ページ種別・固有表現等の構造化メタは付かない）。サイトでは
+「NDL翻刻」バッジで表示し、CC BY 4.0 に基づき出典クレジットを掲示する。
+
 ## 設計方針
 
 - **取得元に負荷をかけない**: 直列・1リクエスト/1〜2秒間隔、リトライ指数バックオフ、

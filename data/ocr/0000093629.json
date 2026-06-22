@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093629",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "華頂要略巻第五\n十一丁\n需要\n昨日\n常陸介藤原爲善謹編輯\n門主伝第四\n妙香院大僧正法印大和尚位\n或号飯\n里僧正一\n諱良快\n後法法性寺關白兼公八男母修理權大夫一\n藤原頼輔朝臣女\n慈鎮和尚弟子妙香院法印尊忠入皇\n大風會塾\n寛政三年寛永一寛政二年\n文治元年乙巳月日誕生",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

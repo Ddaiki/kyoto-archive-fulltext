@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093659",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "良快僧\n正解文\n九月廿六日補一身阿闍梨、\n同日任権少僧都\n貞永元年壬辰\n四月十五日\n天福元年癸巳\n年号改元\n同三年辛卯十二月三十日転権大僧都\n正月十四日叙法\n十四\n印\n歳\n十四\n四月證歳文曰\n阿闍梨大法師永快判\n請負利銭事\n合百弐拾貫文者\n右件利銭壹倍之時不致沙沙汰者\n般若薗并地蔵御仏供田参町可永入\n流也又致返納時者不可依契状有秘\n計得事時前可返納也不然者次第相\n一伝証文悉可譲渡之状如件\n貞永二年四月日\n阿闍梨大法師在判",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

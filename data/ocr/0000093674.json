@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093674",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "一番頭三段公文五段惣公文五段\n地頭五丁\n定田十六町一段九\n公田十四丁六段九分米百四十六石九斗\n頭取給田一丁五段分米十六石八斗和和地千米定\n右牧目録大略注進如件\n公文僧判\n仁治二年十一月廿日\n保司能登判\n十二月六日為女御々入丹御祈於本坊一\n修不動法\n同廿四日\n頂\n門葉記淮\n頂巻云\n於惣持院被修結縁准",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

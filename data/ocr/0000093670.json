@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093670",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "仁治元年庚子\n七月十一日\n年号改元\n正月廿一日於大成就院為慧星御祈後中\n薬師法\n雅成王子\n同廿九日座主記曰後鳥羽院孫王\n《名：法名：\n有授戒事\n二月四日参両山道覚親王御室任和尚嘉一\n二月四日参西山道覚親王御室住和尚嘉\n一禄之御遺誡成師資之礼約\n彗星\n同廿一日為天変\n御祈於閑院皇居\n土現\n以仁寿殿\n勧賞以権大僧\n修七仏楽師法一\n為道場\n都承兼令叙法\n卯\n十箇日\n三月十日下向有馬温泉\n経廻\n六月廿日\n或記\n於本坊修一\n米一\n於本坊修大熾盛光大法\n六月廿日本坊修大蔵修大熾盛光大法勢\n久卿按察使中納言云雅侍従中納言高\n森吉田宰相為祖手二位経高辛相中付\n伝参\n字\n子\n八月八月八月八日上表座主伊豆守\nま\n同十日被送卯鐘",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

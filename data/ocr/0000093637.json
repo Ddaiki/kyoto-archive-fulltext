@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093637",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "十二月二十日申法務拝賀\n門桑紀潅頂巻曰廿一\n日夜法務御拝賀云云\n両寺潅頂参勤\n之次也云々○\n同日\n座主\n伝云\n勤最勝寺潅頂大阿闍梨\n同廿一日勤等勝寺潅頂大阿闍梨\n同日補護持僧\n潅頂\n同廿五日\n勤寺家潅頂大阿闍梨\n巻之\n同日\n一座主\n伝兵\n同廿六日\n修舎利会\n同記\n□□□□□□□\n修一切経会\n依辞退替同\n同二年庚寅正月十四日辞法務法務\n年三月廿三\n日以阿闍梨覚仙\n一断奉行\n堂主\n三月八日\n氏院依立后事参賀中宮\n記云\n一條\n天台座主為氏院司参賀受達\n御所\n室町\n来中絶是嘉承二年三月理智房仁源座\n主為法成寺執印参賀知足院殿之例云ハ\n云先興福寺別当僧正実尊参賀次法成",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

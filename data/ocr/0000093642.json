@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093642",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "已上両載任先例可被下官符兵\n常寿院別当\n当院者法勝寺末寺也鳥羽禅定法皇\n以曽祖師青蓮院大僧正被補此職以来\n寺\n四代相伝更無違乱以本寺一\n法勝\n書可所\n一令寺務也\n大成就院付大熾盛光堂\n此両堂者先師前大僧正軒被草剣也焼\n亡以後未起立志可有其沙汰也人人寄\n附房領等多以為此院領畢\n熱楽寺座主法興院検校\n一極楽寺座主\n已上両職可被下長者宣\n青蓮院南谷大乗院無動寺\n已上山本房\n雙林寺同法華堂并百光院\n已上全玄僧正旧跡也此中百光院者慈\n賢僧正可住持守護旨仰付畢然而為検\n一同校職可令致沙給也\n光明院\n其地有于法性寺四至内先考先師之母\n儀揆墓則在于此地\n白川粟田口房舎吉水房地\na",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

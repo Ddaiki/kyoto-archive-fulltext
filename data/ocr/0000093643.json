@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093643",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "録\n本尊仏具\n目録\n顕密聖教在別\n在別\n已上前大僧正所譲給也\n一世紀一冊一冊\n任先例可被下宣符\n元慶寺座主慈徳寺檢校\n已上両職可為長者宣歟但先例多被\n下宦符畢両様之間可在于時儀歟\n観音堂\n先例所被下長者宣也\n一断断同同一最勝金剛院検校\n一以宜秋門院令旨可令補任欲予之時\n不及此儀只伝領候也後令執務歟\n録\n右寺院寺同右寺院寺院寺院寺院寺院寺院寺院寺院寺院\n同\n本尊仏具\n在別\n顕密聖教等所奉譲于法印権大僧都\n慈源也後更不可有違乱之状如件\n天福元年八月五日\n前大僧正在判\n十一月\n文暦元年甲子\n年号改元\n今年以両寺檢校譲於慈源法印云云云\n五十歳○或記云\n十月篭居於横河飯室谷\n号浄戒坊為\n今度新造立小坊\n御住所云々\n花頂座主伝云今日以無動寺",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

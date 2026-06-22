@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093663",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "一間梨寄進御門跡領於給主職者譲与\n円賢阿闍梨畢但不副本券文書云〻\n加之彼状云存日有違背事者不可依\n一契状云々爰去文暦二年永快以自筆\n之状載條〻子細儀絶円賢副調度文\n書等談昌範畢仍昌範重所寄進御坊一\n領也然者般若房并所領田薗等昌範\n一悉可領掌之云本房修理云地蔵仏聖書\n可致其沙汰之状所仰如件住人等宜\n承知勿違失以下\n嘉禎三年十月日院司法師珍増\n別当法眼和尚位判\n法眼和尚位判\n法師珍慶\n十二月廿五日勤歳未御修法\n同廿九日始修公家長日如意輪法守\n親王\n替\n十一月廿三日\n暦仁元年戊戌\n日年号改元\n一正月廿六日於吉\n一水坊為殿大納言任大将祈修不動法",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}

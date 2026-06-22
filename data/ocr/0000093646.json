@@ -1,0 +1,24 @@
+{
+  "media_pkey": "0000093646",
+  "size": "L",
+  "model": "ndlkotenocr-lite",
+  "source": "ndlkotenocr-lite",
+  "schema_version": 2,
+  "page_type": "",
+  "transcription": "延応元年己亥\n仁治元年庚子\n同二年辛丑\n一同三年壬寅十二月十七日未刻於康楽寺入\n戌五十八歳\n一磯五十八歳去七月為法性寺禅閣受法ノ\n適出京依座主和尚病悩暫以逗留自十\n一月被侵水腫数ナ所加灸猶毎日行\n水不被退行法図拝之時良禅僧正唱止\n観文公浄僧都結秘印顕玄門闍梨誦経\n文\n文\n彼仏令現在也\n後州屋残右世\n成仏等云ス\n一伏豪僧都唱念仏皆是\n依平生素意也\n座主伝六\n不食御方\n同十九日於双林寺火葬\n御墓在飯室云云",
+  "labels": [],
+  "entities": {
+    "建造物": [],
+    "人名": [],
+    "地名": [],
+    "年号": []
+  },
+  "summary": "",
+  "keywords": [],
+  "confidence": null,
+  "illegible_count": 0,
+  "notes": "NDL古典籍OCR-Lite（CC BY 4.0）による自動翻刻。構造化メタなし。",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0
+}
