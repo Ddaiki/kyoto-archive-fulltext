@@ -18,7 +18,7 @@ Claude API の vision で翻刻テキスト化し、**全文検索できる Web 
 | Phase | 内容 | 状態 |
 |-------|------|------|
 | 0 | 画像取得可能性の調査 | ✅ **完了 → 取得可能（GO）** [`docs/feasibility.md`](docs/feasibility.md) |
-| 1 | データ取得パイプライン | 🟡 骨格完成（華頂要略で実証）。全件列挙は未実行 |
+| 1 | データ取得パイプライン | 🟡 全2,716件の基本メタデータ列挙済（区分/タイトル/よみ/編著者）。媒体・画像は資料単位で取得 |
 | 2 | くずし字OCR（Claude vision） | 🟡 検証完了・首巻49見開き翻刻済み（実測$0.0147/見開き）[`docs/ocr_cost.md`](docs/ocr_cost.md) |
 | 3 | 検索DB（SQLite FTS5） | 🟡 暫定: 静的JSON＋クライアント検索（FTS5化は規模拡大時） |
 | 4 | Web サイト＋デプロイ | ✅ **公開中**（GitHub Pages）[`docs/hosting_decision.md`](docs/hosting_decision.md) |
