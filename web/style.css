@@ -1,0 +1,77 @@
+:root {
+  --bg: #f7f5ef;
+  --ink: #2b2622;
+  --muted: #7a7165;
+  --accent: #8a5a2b;
+  --line: #e2dccf;
+  --card: #fffdf8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.7;
+}
+header {
+  padding: 1.6rem 1.2rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(#fffdf8, #f7f5ef);
+}
+h1 { margin: 0 0 .2rem; font-size: 1.5rem; letter-spacing: .04em; }
+.proto {
+  font-size: .6rem; vertical-align: super; margin-left: .5rem;
+  color: #fff; background: var(--accent); padding: .12rem .45rem; border-radius: 999px;
+  font-family: sans-serif; letter-spacing: .08em;
+}
+.lead { margin: .1rem 0 .9rem; color: var(--muted); font-size: .9rem; }
+.searchbar { display: flex; align-items: center; gap: .8rem; max-width: 760px; }
+#q {
+  flex: 1; padding: .7rem .9rem; font-size: 1rem; border: 1px solid var(--line);
+  border-radius: 8px; background: #fff; font-family: inherit;
+}
+#q:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.count { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+
+main { max-width: 960px; margin: 0 auto; padding: 1.2rem; }
+
+.record-head {
+  margin: 1.4rem 0 .6rem; padding-bottom: .4rem; border-bottom: 2px solid var(--line);
+}
+.record-head h2 { margin: 0; font-size: 1.2rem; }
+.record-head .meta { color: var(--muted); font-size: .85rem; margin-top: .2rem; }
+
+.page {
+  display: grid; grid-template-columns: 200px 1fr; gap: 1rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: .9rem; margin: .8rem 0;
+}
+.page img { width: 200px; height: auto; border-radius: 6px; cursor: zoom-in; border: 1px solid var(--line); }
+.page .body { min-width: 0; }
+.page .label { font-size: .75rem; color: var(--muted); font-family: sans-serif; }
+.page .text { white-space: pre-wrap; margin: .35rem 0 0; font-size: 1rem; }
+.page .text.empty { color: var(--muted); font-style: italic; }
+.page mark { background: #ffe9b8; padding: 0 .05em; }
+.conf { font-size: .72rem; color: var(--muted); font-family: sans-serif; margin-top: .4rem; }
+
+footer {
+  margin-top: 2rem; padding: 1rem 1.2rem; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: .8rem;
+}
+footer a { color: var(--accent); }
+
+.lightbox {
+  position: fixed; inset: 0; background: rgba(20,16,12,.85);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.lightbox.hidden { display: none; }
+.lightbox img { max-width: 94vw; max-height: 92vh; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+.lbClose {
+  position: fixed; top: 1rem; right: 1.2rem; font-size: 2rem; color: #fff;
+  background: none; border: none; cursor: pointer; line-height: 1;
+}
+@media (max-width: 560px) {
+  .page { grid-template-columns: 1fr; }
+  .page img { width: 160px; }
+}

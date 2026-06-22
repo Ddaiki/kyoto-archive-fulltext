@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>京都古典籍 全文検索（プロトタイプ）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>京都古典籍 全文検索<span class="proto">プロトタイプ</span></h1>
+    <p class="lead">京都学・歴彩館 古典籍カタログのくずし字本文を翻刻し全文検索する試作版。</p>
+    <div class="searchbar">
+      <input id="q" type="search" placeholder="本文・タイトル・編著者で検索（例: 大僧正 / 親王 / 法印）" autocomplete="off">
+      <span id="count" class="count"></span>
+    </div>
+  </header>
+
+  <main id="results"></main>
+
+  <footer>
+    <p>出典: ©京都府立京都学・歴彩館 歴史資料アーカイブ（公開）
+      <a id="srcLink" href="#" target="_blank" rel="noopener">原資料を見る</a>。
+      画像は提供元サーバを参照。翻刻テキストは Claude vision による自動翻刻（校正前）。</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+    <button id="lbClose" class="lbClose" aria-label="閉じる">×</button>
+    <img id="lbImg" alt="拡大画像">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

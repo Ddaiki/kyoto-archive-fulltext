@@ -50,7 +50,30 @@ pip install -r requirements.txt
 cp .env.example .env   # ANTHROPIC_API_KEY を記入（Phase 2 以降）
 ```
 
-実行手順は各 Phase 実装時に追記する。
+## プロトタイプの実行（華頂要略を縦に1本）
+
+```bash
+. .venv/bin/activate
+export SCRAPER_CONTACT_EMAIL="<連絡先>"
+
+# 1) メタデータ＋画像一覧の取得（先頭50画像分の manifest）
+python -m src.fetch.record 0000000402 1
+
+# 2) ページ画像のダウンロード（L サイズ・キャッシュ）
+python -m src.fetch.images 0000000402 9 L
+
+# 3) くずし字OCR（要 ANTHROPIC_API_KEY。表紙等を避け4枚目から4見開き）
+python -m src.ocr.transcribe 0000000402 4 4
+
+# 4) フロント用データ生成
+python -m src.db.build_web 0000000402
+
+# 5) ローカル表示
+( cd web && python -m http.server 8765 )   # → http://localhost:8765
+```
+
+各ステップは取得済みを再利用（idempotent）。OCR 結果は `data/ocr/`、
+概算費用は実行ログと `docs/ocr_cost.md` に記録する。
 
 ## 設計方針
 
