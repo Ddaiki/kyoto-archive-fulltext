@@ -4,8 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>書架＋年表 — 京都古典籍 全文検索</title>
-<link rel="stylesheet" href="tokens.css?v=7">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="tokens.css?v=8">
+<link rel="stylesheet" href="style.css?v=8">
+<style>
+/* スマホのタイル表示を確実に適用（外部CSSの順序・キャッシュに依存しない最終指定） */
+@media (max-width:820px){
+  #shelves .rail{gap:0 !important;padding:4px 4px 10px !important}
+  #shelves .bcard,.recview .bcard{width:96px !important;border-radius:0 !important;margin:0 !important}
+  #shelves .shelf.open .rail,.recview .rv-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr)) !important;gap:0 !important}
+  #shelves .bcard .imgwrap,.recview .bcard .imgwrap{border-radius:0 !important}
+}
+@media (max-width:480px){
+  #shelves .bcard{width:86px !important}
+  #shelves .shelf.open .rail,.recview .rv-grid{grid-template-columns:repeat(4,1fr) !important;gap:0 !important}
+}
+</style>
 </head>
 <body>
 <div class="top">
@@ -44,6 +57,6 @@
 
 <footer class="ftr" id="ftr"></footer>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
