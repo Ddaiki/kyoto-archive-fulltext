@@ -177,9 +177,9 @@ body{min-height:100vh}
   .shelf{margin:1rem 0}
   .shelf-h{margin-bottom:.4rem}
   .shelf-h b{font-size:.95rem}
-  /* タイル状にびっしり：隙間ゼロ・角丸なし */
-  .rail{gap:0;padding:4px 8px 10px}
-  .bcard{width:104px;border-radius:0}
+  /* タイル状にびっしり：隙間ゼロ・角丸なし・端まで */
+  .rail{gap:0;padding:4px 4px 10px}
+  .bcard{width:98px;border-radius:0}
   .bcard .imgwrap{border-radius:0}
   .bcard .bc-body{padding:.3rem .4rem .45rem}
   .bcard .bc-type{font-size:.56rem;margin-bottom:.18rem}
